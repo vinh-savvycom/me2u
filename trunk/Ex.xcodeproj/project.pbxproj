@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47EE3CB911E8C6B600DB2AE7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EE3CB711E8C6B600DB2AE7 /* ViewController.m */; };
+		47EE3CBA11E8C6B600DB2AE7 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47EE3CB811E8C6B600DB2AE7 /* ViewController.xib */; };
 		5F1498DC15AC79160051B8EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1498DB15AC79160051B8EE /* UIKit.framework */; };
 		5F1498DE15AC79160051B8EE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1498DD15AC79160051B8EE /* Foundation.framework */; };
 		5F1498E015AC79160051B8EE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F1498DF15AC79160051B8EE /* CoreGraphics.framework */; };
@@ -18,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47EE3CB611E8C6B600DB2AE7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		47EE3CB711E8C6B600DB2AE7 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		47EE3CB811E8C6B600DB2AE7 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		5F1498D715AC79160051B8EE /* Ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F1498DB15AC79160051B8EE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F1498DD15AC79160051B8EE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -82,6 +87,9 @@
 				5F1498ED15AC79160051B8EE /* AppDelegate.m */,
 				5F1498EF15AC79160051B8EE /* Ex.xcdatamodeld */,
 				5F1498E415AC79160051B8EE /* Supporting Files */,
+				47EE3CB611E8C6B600DB2AE7 /* ViewController.h */,
+				47EE3CB711E8C6B600DB2AE7 /* ViewController.m */,
+				47EE3CB811E8C6B600DB2AE7 /* ViewController.xib */,
 			);
 			path = Ex;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F1498E815AC79160051B8EE /* InfoPlist.strings in Resources */,
+				47EE3CBA11E8C6B600DB2AE7 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +170,7 @@
 				5F1498EA15AC79160051B8EE /* main.m in Sources */,
 				5F1498EE15AC79160051B8EE /* AppDelegate.m in Sources */,
 				5F1498F115AC79160051B8EE /* Ex.xcdatamodeld in Sources */,
+				47EE3CB911E8C6B600DB2AE7 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +274,7 @@
 				5F1498F615AC79160051B8EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
