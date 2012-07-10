@@ -17,6 +17,7 @@
 		5F1498EA15AC79160051B8EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1498E915AC79160051B8EE /* main.m */; };
 		5F1498EE15AC79160051B8EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1498ED15AC79160051B8EE /* AppDelegate.m */; };
 		5F1498F115AC79160051B8EE /* Ex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F1498EF15AC79160051B8EE /* Ex.xcdatamodeld */; };
+		5F14990515AC80890051B8EE /* MainViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F14990415AC80890051B8EE /* MainViewCtrl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		5F1498EC15AC79160051B8EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5F1498ED15AC79160051B8EE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5F1498F015AC79160051B8EE /* Ex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ex.xcdatamodel; sourceTree = "<group>"; };
+		5F14990315AC80890051B8EE /* MainViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCtrl.h; sourceTree = "<group>"; };
+		5F14990415AC80890051B8EE /* MainViewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCtrl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				47EE3CB611E8C6B600DB2AE7 /* ViewController.h */,
 				47EE3CB711E8C6B600DB2AE7 /* ViewController.m */,
 				47EE3CB811E8C6B600DB2AE7 /* ViewController.xib */,
+				5F14990315AC80890051B8EE /* MainViewCtrl.h */,
+				5F14990415AC80890051B8EE /* MainViewCtrl.m */,
 			);
 			path = Ex;
 			sourceTree = "<group>";
@@ -171,6 +176,7 @@
 				5F1498EE15AC79160051B8EE /* AppDelegate.m in Sources */,
 				5F1498F115AC79160051B8EE /* Ex.xcdatamodeld in Sources */,
 				47EE3CB911E8C6B600DB2AE7 /* ViewController.m in Sources */,
+				5F14990515AC80890051B8EE /* MainViewCtrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
