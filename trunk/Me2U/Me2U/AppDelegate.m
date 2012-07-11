@@ -14,6 +14,8 @@
 @synthesize managedObjectContext = __managedObjectContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
+@synthesize rootNavCtrl;
+@synthesize splashCtrl;
 
 - (void)dealloc
 {
@@ -30,6 +32,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    self.splashCtrl = [[SplashScreenCtrl alloc] init];
+    self.rootNavCtrl = [[UINavigationController alloc] initWithRootViewController:self.splashCtrl];
+    self.window.rootViewController = self.rootNavCtrl;
+    
     return YES;
 }
 
@@ -181,5 +188,4 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
-
 @end
