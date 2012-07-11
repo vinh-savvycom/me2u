@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComingSoon.h"
 
-@interface HomeScreenCtrl : UIViewController
+@interface HomeScreenCtrl : UIViewController <UITabBarControllerDelegate, UITabBarDelegate>
+
+@property (nonatomic, retain) UITabBarController *tbarCtrl;
 
 - (void)goToPriceRangeScreen;
 - (void)goToGiftTypeScreen;

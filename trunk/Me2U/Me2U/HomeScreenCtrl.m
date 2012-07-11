@@ -10,6 +10,8 @@
 
 @implementation HomeScreenCtrl
 
+@synthesize tbarCtrl;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -122,6 +124,19 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = YES;
+}
+
+- (void)dealloc
+{
+    [tbarCtrl release];
+    
+    [super dealloc];
+}
+
 #pragma mark - custom actions
 - (void)goToPriceRangeScreen
 {
@@ -136,6 +151,43 @@
 - (void)goToStoreScreen
 {
     NSLog(@"go to store list");
+    
+    tbarCtrl = [[UITabBarController alloc] init];
+    NSMutableArray *controllers = [[NSMutableArray alloc] init];
+    ComingSoon* storeCtrl;
+
+    storeCtrl = [[ComingSoon alloc] init];
+    [storeCtrl.tabBarItem initWithTitle:@"Home" image:[UIImage imageNamed:@"shopping.png"] tag:100];
+    [controllers addObject:storeCtrl];
+    
+    storeCtrl = [[ComingSoon alloc] init];
+    [storeCtrl.tabBarItem initWithTitle:@"Store Search" image:[UIImage imageNamed:@"cart.png"] tag:101];
+    [controllers addObject:storeCtrl];
+    
+    storeCtrl = [[ComingSoon alloc] init];
+    [storeCtrl.tabBarItem initWithTitle:@"Favourites" image:[UIImage imageNamed:@"shopping.png"] tag:102];
+    [controllers addObject:storeCtrl];
+    
+    storeCtrl = [[ComingSoon alloc] init];
+    [storeCtrl.tabBarItem initWithTitle:@"Cart" image:[UIImage imageNamed:@"cart.png"] tag:103];
+    [controllers addObject:storeCtrl];
+    
+    tbarCtrl.viewControllers = controllers;
+	tbarCtrl.customizableViewControllers = controllers;
+	tbarCtrl.delegate = self;
+    [tbarCtrl setSelectedIndex:1];
+    
+    [self.navigationController pushViewController:tbarCtrl animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+#pragma mark - delegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if ([tbarCtrl selectedIndex] == 0) {
+        NSLog(@"back to home");
+        [tbarCtrl.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 @end
