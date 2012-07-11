@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F0BA7E115ADAE5800993239 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E015ADAE5800993239 /* UIKit.framework */; };
+		5F0BA7E315ADAE5800993239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E215ADAE5800993239 /* Foundation.framework */; };
+		5F0BA7E515ADAE5800993239 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */; };
+		5F0BA7E715ADAE5800993239 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E615ADAE5800993239 /* CoreData.framework */; };
+		5F0BA7ED15ADAE5800993239 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA7EB15ADAE5800993239 /* InfoPlist.strings */; };
+		5F0BA7EF15ADAE5800993239 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA7EE15ADAE5800993239 /* main.m */; };
+		5F0BA7F315ADAE5800993239 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA7F215ADAE5800993239 /* AppDelegate.m */; };
+		5F0BA7F615ADAE5800993239 /* Me2U.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA7F415ADAE5800993239 /* Me2U.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F0BA7DC15ADAE5800993239 /* Me2U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Me2U.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F0BA7E015ADAE5800993239 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		5F0BA7E215ADAE5800993239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5F0BA7E615ADAE5800993239 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5F0BA7EA15ADAE5800993239 /* Me2U-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Me2U-Info.plist"; sourceTree = "<group>"; };
+		5F0BA7EC15ADAE5800993239 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5F0BA7EE15ADAE5800993239 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5F0BA7F015ADAE5800993239 /* Me2U-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Me2U-Prefix.pch"; sourceTree = "<group>"; };
+		5F0BA7F115ADAE5800993239 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5F0BA7F215ADAE5800993239 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5F0BA7F515ADAE5800993239 /* Me2U.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Me2U.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F0BA7D915ADAE5800993239 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F0BA7E115ADAE5800993239 /* UIKit.framework in Frameworks */,
+				5F0BA7E315ADAE5800993239 /* Foundation.framework in Frameworks */,
+				5F0BA7E515ADAE5800993239 /* CoreGraphics.framework in Frameworks */,
+				5F0BA7E715ADAE5800993239 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5F0BA7D115ADAE5700993239 = {
+			isa = PBXGroup;
+			children = (
+				5F0BA7E815ADAE5800993239 /* Me2U */,
+				5F0BA7DF15ADAE5800993239 /* Frameworks */,
+				5F0BA7DD15ADAE5800993239 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5F0BA7DD15ADAE5800993239 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA7DC15ADAE5800993239 /* Me2U.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F0BA7DF15ADAE5800993239 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA7E015ADAE5800993239 /* UIKit.framework */,
+				5F0BA7E215ADAE5800993239 /* Foundation.framework */,
+				5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */,
+				5F0BA7E615ADAE5800993239 /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5F0BA7E815ADAE5800993239 /* Me2U */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA80215ADAF5800993239 /* images */,
+				5F0BA7FF15ADAEC000993239 /* WebServiceProcess */,
+				5F0BA7FE15ADAEAD00993239 /* DataAccess */,
+				5F0BA7FD15ADAE9A00993239 /* GUI */,
+				5F0BA7F115ADAE5800993239 /* AppDelegate.h */,
+				5F0BA7F215ADAE5800993239 /* AppDelegate.m */,
+				5F0BA7F415ADAE5800993239 /* Me2U.xcdatamodeld */,
+				5F0BA7E915ADAE5800993239 /* Supporting Files */,
+			);
+			path = Me2U;
+			sourceTree = "<group>";
+		};
+		5F0BA7E915ADAE5800993239 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA7EA15ADAE5800993239 /* Me2U-Info.plist */,
+				5F0BA7EB15ADAE5800993239 /* InfoPlist.strings */,
+				5F0BA7EE15ADAE5800993239 /* main.m */,
+				5F0BA7F015ADAE5800993239 /* Me2U-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F0BA7FD15ADAE9A00993239 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		5F0BA7FE15ADAEAD00993239 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = DataAccess;
+			sourceTree = "<group>";
+		};
+		5F0BA7FF15ADAEC000993239 /* WebServiceProcess */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = WebServiceProcess;
+			sourceTree = "<group>";
+		};
+		5F0BA80215ADAF5800993239 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F0BA7DB15ADAE5800993239 /* Me2U */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F0BA7F915ADAE5800993239 /* Build configuration list for PBXNativeTarget "Me2U" */;
+			buildPhases = (
+				5F0BA7D815ADAE5800993239 /* Sources */,
+				5F0BA7D915ADAE5800993239 /* Frameworks */,
+				5F0BA7DA15ADAE5800993239 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Me2U;
+			productName = Me2U;
+			productReference = 5F0BA7DC15ADAE5800993239 /* Me2U.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5F0BA7D315ADAE5700993239 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 5F0BA7D615ADAE5700993239 /* Build configuration list for PBXProject "Me2U" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5F0BA7D115ADAE5700993239;
+			productRefGroup = 5F0BA7DD15ADAE5800993239 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F0BA7DB15ADAE5800993239 /* Me2U */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5F0BA7DA15ADAE5800993239 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F0BA7ED15ADAE5800993239 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F0BA7D815ADAE5800993239 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F0BA7EF15ADAE5800993239 /* main.m in Sources */,
+				5F0BA7F315ADAE5800993239 /* AppDelegate.m in Sources */,
+				5F0BA7F615ADAE5800993239 /* Me2U.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5F0BA7EB15ADAE5800993239 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5F0BA7EC15ADAE5800993239 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5F0BA7F715ADAE5800993239 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5F0BA7F815ADAE5800993239 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5F0BA7FA15ADAE5800993239 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Me2U/Me2U-Prefix.pch";
+				INFOPLIST_FILE = "Me2U/Me2U-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		5F0BA7FB15ADAE5800993239 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Me2U/Me2U-Prefix.pch";
+				INFOPLIST_FILE = "Me2U/Me2U-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F0BA7D615ADAE5700993239 /* Build configuration list for PBXProject "Me2U" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F0BA7F715ADAE5800993239 /* Debug */,
+				5F0BA7F815ADAE5800993239 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5F0BA7F915ADAE5800993239 /* Build configuration list for PBXNativeTarget "Me2U" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F0BA7FA15ADAE5800993239 /* Debug */,
+				5F0BA7FB15ADAE5800993239 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5F0BA7F415ADAE5800993239 /* Me2U.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5F0BA7F515ADAE5800993239 /* Me2U.xcdatamodel */,
+			);
+			currentVersion = 5F0BA7F515ADAE5800993239 /* Me2U.xcdatamodel */;
+			path = Me2U.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 5F0BA7D315ADAE5700993239 /* Project object */;
+}
