@@ -37,6 +37,17 @@
 		5F0BA83815ADCC5400993239 /* priceRangeTxt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA83215ADCC5400993239 /* priceRangeTxt@2x.png */; };
 		5F0BA83915ADCC5400993239 /* storeTxt.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA83315ADCC5400993239 /* storeTxt.png */; };
 		5F0BA83A15ADCC5400993239 /* storeTxt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA83415ADCC5400993239 /* storeTxt@2x.png */; };
+		5F0BA83F15ADE44A00993239 /* StoreScreenCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA83D15ADE44A00993239 /* StoreScreenCtrl.m */; };
+		5F0BA84015ADE44A00993239 /* StoreScreenCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA83E15ADE44A00993239 /* StoreScreenCtrl.xib */; };
+		5F0BA84B15ADECF600993239 /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA84715ADECF200993239 /* cart.png */; };
+		5F0BA84C15ADECF600993239 /* cart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA84815ADECF300993239 /* cart@2x.png */; };
+		5F0BA84D15ADECF600993239 /* shopping.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA84915ADECF400993239 /* shopping.png */; };
+		5F0BA84E15ADECF600993239 /* shopping@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA84A15ADECF500993239 /* shopping@2x.png */; };
+		5F0BA85015ADEE4900993239 /* comingSoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA84F15ADEE4900993239 /* comingSoon.png */; };
+		5F0BA85515ADF0C200993239 /* ComingSoon.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA85315ADF0C200993239 /* ComingSoon.m */; };
+		5F0BA85615ADF0C200993239 /* ComingSoon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85415ADF0C200993239 /* ComingSoon.xib */; };
+		5F0BA85815AE00E200993239 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85715AE00E100993239 /* StoreCell.xib */; };
+		5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA85A15AE048A00993239 /* StoreCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +87,20 @@
 		5F0BA83215ADCC5400993239 /* priceRangeTxt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "priceRangeTxt@2x.png"; path = "images/priceRangeTxt@2x.png"; sourceTree = SOURCE_ROOT; };
 		5F0BA83315ADCC5400993239 /* storeTxt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = storeTxt.png; path = images/storeTxt.png; sourceTree = SOURCE_ROOT; };
 		5F0BA83415ADCC5400993239 /* storeTxt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "storeTxt@2x.png"; path = "images/storeTxt@2x.png"; sourceTree = SOURCE_ROOT; };
+		5F0BA83C15ADE44A00993239 /* StoreScreenCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreScreenCtrl.h; sourceTree = "<group>"; };
+		5F0BA83D15ADE44A00993239 /* StoreScreenCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreScreenCtrl.m; sourceTree = "<group>"; };
+		5F0BA83E15ADE44A00993239 /* StoreScreenCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreScreenCtrl.xib; sourceTree = "<group>"; };
+		5F0BA84715ADECF200993239 /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cart.png; path = images/cart.png; sourceTree = SOURCE_ROOT; };
+		5F0BA84815ADECF300993239 /* cart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cart@2x.png"; path = "images/cart@2x.png"; sourceTree = SOURCE_ROOT; };
+		5F0BA84915ADECF400993239 /* shopping.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shopping.png; path = images/shopping.png; sourceTree = SOURCE_ROOT; };
+		5F0BA84A15ADECF500993239 /* shopping@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopping@2x.png"; path = "images/shopping@2x.png"; sourceTree = SOURCE_ROOT; };
+		5F0BA84F15ADEE4900993239 /* comingSoon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = comingSoon.png; path = images/comingSoon.png; sourceTree = SOURCE_ROOT; };
+		5F0BA85215ADF0C200993239 /* ComingSoon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComingSoon.h; sourceTree = "<group>"; };
+		5F0BA85315ADF0C200993239 /* ComingSoon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComingSoon.m; sourceTree = "<group>"; };
+		5F0BA85415ADF0C200993239 /* ComingSoon.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComingSoon.xib; sourceTree = "<group>"; };
+		5F0BA85715AE00E100993239 /* StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
+		5F0BA85915AE048900993239 /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
+		5F0BA85A15AE048A00993239 /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +175,8 @@
 		5F0BA7FD15ADAE9A00993239 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				5F0BA85115ADF0A700993239 /* ComingSoon */,
+				5F0BA83B15ADE42C00993239 /* StoreScreen */,
 				5F0BA81915ADB99B00993239 /* HomeScreen */,
 				5F0BA80315ADB07E00993239 /* SplashScreen */,
 			);
@@ -173,6 +200,11 @@
 		5F0BA80215ADAF5800993239 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5F0BA84F15ADEE4900993239 /* comingSoon.png */,
+				5F0BA84715ADECF200993239 /* cart.png */,
+				5F0BA84815ADECF300993239 /* cart@2x.png */,
+				5F0BA84915ADECF400993239 /* shopping.png */,
+				5F0BA84A15ADECF500993239 /* shopping@2x.png */,
 				5F0BA82F15ADCC5300993239 /* giftTypeTxt.png */,
 				5F0BA83015ADCC5300993239 /* giftTypeTxt@2x.png */,
 				5F0BA83115ADCC5400993239 /* priceRangeTxt.png */,
@@ -213,6 +245,29 @@
 				5F0BA81C15ADB9B400993239 /* HomeScreenCtrl.xib */,
 			);
 			name = HomeScreen;
+			sourceTree = "<group>";
+		};
+		5F0BA83B15ADE42C00993239 /* StoreScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA85715AE00E100993239 /* StoreCell.xib */,
+				5F0BA85915AE048900993239 /* StoreCell.h */,
+				5F0BA85A15AE048A00993239 /* StoreCell.m */,
+				5F0BA83C15ADE44A00993239 /* StoreScreenCtrl.h */,
+				5F0BA83D15ADE44A00993239 /* StoreScreenCtrl.m */,
+				5F0BA83E15ADE44A00993239 /* StoreScreenCtrl.xib */,
+			);
+			name = StoreScreen;
+			sourceTree = "<group>";
+		};
+		5F0BA85115ADF0A700993239 /* ComingSoon */ = {
+			isa = PBXGroup;
+			children = (
+				5F0BA85215ADF0C200993239 /* ComingSoon.h */,
+				5F0BA85315ADF0C200993239 /* ComingSoon.m */,
+				5F0BA85415ADF0C200993239 /* ComingSoon.xib */,
+			);
+			name = ComingSoon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +341,14 @@
 				5F0BA83815ADCC5400993239 /* priceRangeTxt@2x.png in Resources */,
 				5F0BA83915ADCC5400993239 /* storeTxt.png in Resources */,
 				5F0BA83A15ADCC5400993239 /* storeTxt@2x.png in Resources */,
+				5F0BA84015ADE44A00993239 /* StoreScreenCtrl.xib in Resources */,
+				5F0BA84B15ADECF600993239 /* cart.png in Resources */,
+				5F0BA84C15ADECF600993239 /* cart@2x.png in Resources */,
+				5F0BA84D15ADECF600993239 /* shopping.png in Resources */,
+				5F0BA84E15ADECF600993239 /* shopping@2x.png in Resources */,
+				5F0BA85015ADEE4900993239 /* comingSoon.png in Resources */,
+				5F0BA85615ADF0C200993239 /* ComingSoon.xib in Resources */,
+				5F0BA85815AE00E200993239 /* StoreCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +364,9 @@
 				5F0BA7F615ADAE5800993239 /* Me2U.xcdatamodeld in Sources */,
 				5F0BA80F15ADB31000993239 /* SplashScreenCtrl.m in Sources */,
 				5F0BA81D15ADB9B400993239 /* HomeScreenCtrl.m in Sources */,
+				5F0BA83F15ADE44A00993239 /* StoreScreenCtrl.m in Sources */,
+				5F0BA85515ADF0C200993239 /* ComingSoon.m in Sources */,
+				5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
