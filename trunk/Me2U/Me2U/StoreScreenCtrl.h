@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "StoreTableViewCtrl.h"
+#import "CatetoryPickerView.h"
+#import "define.h"
 
-@interface StoreScreenCtrl : UIViewController <UITextFieldDelegate>
+@interface StoreScreenCtrl : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, retain) StoreTableViewCtrl* tableViewCtrl;
+
+- (void)categorySelected:(id)sender;
 
 @end

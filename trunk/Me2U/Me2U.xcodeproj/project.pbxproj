@@ -62,6 +62,7 @@
 		5F1CC56015AE7FD400F00286 /* flower03.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55B15AE7FD400F00286 /* flower03.jpeg */; };
 		5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55C15AE7FD400F00286 /* flower04.jpeg */; };
 		5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55D15AE7FD400F00286 /* flower05.jpeg */; };
+		5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -136,6 +137,8 @@
 		5F1CC55B15AE7FD400F00286 /* flower03.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower03.jpeg; path = images/flower03.jpeg; sourceTree = SOURCE_ROOT; };
 		5F1CC55C15AE7FD400F00286 /* flower04.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower04.jpeg; path = images/flower04.jpeg; sourceTree = SOURCE_ROOT; };
 		5F1CC55D15AE7FD400F00286 /* flower05.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower05.jpeg; path = images/flower05.jpeg; sourceTree = SOURCE_ROOT; };
+		5F1CC57E15AEBBF700F00286 /* CatetoryPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatetoryPickerView.h; sourceTree = "<group>"; };
+		5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatetoryPickerView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +316,7 @@
 		5F0BA83B15ADE42C00993239 /* StoreScreen */ = {
 			isa = PBXGroup;
 			children = (
+				5F1CC57C15AEBBE200F00286 /* CategoryPicker */,
 				5F0BA85715AE00E100993239 /* StoreCell.xib */,
 				5F0BA85915AE048900993239 /* StoreCell.h */,
 				5F0BA85A15AE048A00993239 /* StoreCell.m */,
@@ -365,6 +369,15 @@
 				5F1CC55D15AE7FD400F00286 /* flower05.jpeg */,
 			);
 			name = ProductImages;
+			sourceTree = "<group>";
+		};
+		5F1CC57C15AEBBE200F00286 /* CategoryPicker */ = {
+			isa = PBXGroup;
+			children = (
+				5F1CC57E15AEBBF700F00286 /* CatetoryPickerView.h */,
+				5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */,
+			);
+			name = CategoryPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,6 +491,7 @@
 				5F1CC55615AE7A2000F00286 /* StoreTableViewCtrl.m in Sources */,
 				47FE903015AE8F0D006D0D99 /* GiftTypeViewController.m in Sources */,
 				47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */,
+				5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

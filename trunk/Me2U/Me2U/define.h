@@ -9,6 +9,7 @@
 #ifndef Me2U_define_h
 #define Me2U_define_h
 
-
+#define BTN_CATEGORY_TAG 110
+#define PKV_CATEGORY_TAG 111
 
 #endif
