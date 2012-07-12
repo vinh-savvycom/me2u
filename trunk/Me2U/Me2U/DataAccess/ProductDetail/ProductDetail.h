@@ -13,9 +13,10 @@
 @property (nonatomic, retain) NSString *linkToImgProduct;
 @property (nonatomic, retain) NSString *titleProduct;
 @property (nonatomic, retain) NSString *shopProduct;
-@property (nonatomic, retain) NSString *priceProduct;
+@property (nonatomic, readwrite) float priceProduct;
 @property (nonatomic, retain) NSString *descriptionProduct;
 @property (nonatomic, retain) NSString *manufacturerProduct;
 
-- (id)init; 
+- (id)init;
+- (id)initWithShop:(NSString*)shop withPrice:(float)price withTitle:(NSString*)title withImgURL:(NSString*)imgUrl withDescription:(NSString*)description andManufacturer:(NSString*)manufaturer;
 @end

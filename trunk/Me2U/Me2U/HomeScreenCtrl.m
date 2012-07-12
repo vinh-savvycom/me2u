@@ -160,9 +160,9 @@
     [storeCtrl.tabBarItem initWithTitle:@"Home" image:[UIImage imageNamed:@"shopping.png"] tag:100];
     [controllers addObject:storeCtrl];
     
-    storeCtrl = [[ComingSoon alloc] init];
-    [storeCtrl.tabBarItem initWithTitle:@"Store Search" image:[UIImage imageNamed:@"cart.png"] tag:101];
-    [controllers addObject:storeCtrl];
+    StoreScreenCtrl* storeScreenCtrl = [[StoreScreenCtrl alloc] init];
+    [storeScreenCtrl.tabBarItem initWithTitle:@"Store Search" image:[UIImage imageNamed:@"cart.png"] tag:101];
+    [controllers addObject:storeScreenCtrl];
     
     storeCtrl = [[ComingSoon alloc] init];
     [storeCtrl.tabBarItem initWithTitle:@"Favourites" image:[UIImage imageNamed:@"shopping.png"] tag:102];

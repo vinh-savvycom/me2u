@@ -10,6 +10,8 @@
 
 @implementation StoreScreenCtrl
 
+@synthesize tableViewCtrl;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -34,7 +36,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    //create table here
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 25.0f)];
+    [textField setBorderStyle:UITextBorderStyleRoundedRect];
+    [textField setDelegate:self];
+    [self.view addSubview:textField];
+    [textField release];
     
+    tableViewCtrl = [[StoreTableViewCtrl alloc] init];
+    UITableView *tableView = tableViewCtrl.tableView;
+    [tableView setFrame:CGRectMake(0.0f, 40.0f, 320.0f, 394.0f)];
+    [self.view addSubview:tableView];
 }
 
 - (void)viewDidUnload
@@ -48,6 +60,13 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)dealloc
+{
+    [tableViewCtrl release];
+    
+    [super dealloc];
 }
 
 @end

@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreTableViewCtrl.h"
 
-@interface StoreScreenCtrl : UIViewController
+@interface StoreScreenCtrl : UIViewController <UITextFieldDelegate>
+
+@property (nonatomic, retain) StoreTableViewCtrl* tableViewCtrl;
 
 @end

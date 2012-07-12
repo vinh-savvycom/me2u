@@ -51,6 +51,13 @@
 		5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA85A15AE048A00993239 /* StoreCell.m */; };
 		5F1CC54015AE74F600F00286 /* DataAccessProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */; };
 		5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC54915AE75FF00F00286 /* Global.mm */; };
+		5F1CC55615AE7A2000F00286 /* StoreTableViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC55415AE7A2000F00286 /* StoreTableViewCtrl.m */; };
+		5F1CC55715AE7A2000F00286 /* StoreTableViewCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55515AE7A2000F00286 /* StoreTableViewCtrl.xib */; };
+		5F1CC55E15AE7FD400F00286 /* flower01.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55915AE7FD400F00286 /* flower01.jpeg */; };
+		5F1CC55F15AE7FD400F00286 /* flower02.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55A15AE7FD400F00286 /* flower02.jpeg */; };
+		5F1CC56015AE7FD400F00286 /* flower03.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55B15AE7FD400F00286 /* flower03.jpeg */; };
+		5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55C15AE7FD400F00286 /* flower04.jpeg */; };
+		5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55D15AE7FD400F00286 /* flower05.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +118,14 @@
 		5F1CC54615AE756200F00286 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
 		5F1CC54815AE75FF00F00286 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
 		5F1CC54915AE75FF00F00286 /* Global.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Global.mm; sourceTree = "<group>"; };
+		5F1CC55315AE7A2000F00286 /* StoreTableViewCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreTableViewCtrl.h; sourceTree = "<group>"; };
+		5F1CC55415AE7A2000F00286 /* StoreTableViewCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreTableViewCtrl.m; sourceTree = "<group>"; };
+		5F1CC55515AE7A2000F00286 /* StoreTableViewCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreTableViewCtrl.xib; sourceTree = "<group>"; };
+		5F1CC55915AE7FD400F00286 /* flower01.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower01.jpeg; path = images/flower01.jpeg; sourceTree = SOURCE_ROOT; };
+		5F1CC55A15AE7FD400F00286 /* flower02.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower02.jpeg; path = images/flower02.jpeg; sourceTree = SOURCE_ROOT; };
+		5F1CC55B15AE7FD400F00286 /* flower03.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower03.jpeg; path = images/flower03.jpeg; sourceTree = SOURCE_ROOT; };
+		5F1CC55C15AE7FD400F00286 /* flower04.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower04.jpeg; path = images/flower04.jpeg; sourceTree = SOURCE_ROOT; };
+		5F1CC55D15AE7FD400F00286 /* flower05.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower05.jpeg; path = images/flower05.jpeg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +237,7 @@
 		5F0BA80215ADAF5800993239 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5F1CC55815AE7C2000F00286 /* ProductImages */,
 				5F0BA84F15ADEE4900993239 /* comingSoon.png */,
 				5F0BA84715ADECF200993239 /* cart.png */,
 				5F0BA84815ADECF300993239 /* cart@2x.png */,
@@ -278,6 +294,9 @@
 				5F0BA83C15ADE44A00993239 /* StoreScreenCtrl.h */,
 				5F0BA83D15ADE44A00993239 /* StoreScreenCtrl.m */,
 				5F0BA83E15ADE44A00993239 /* StoreScreenCtrl.xib */,
+				5F1CC55315AE7A2000F00286 /* StoreTableViewCtrl.h */,
+				5F1CC55415AE7A2000F00286 /* StoreTableViewCtrl.m */,
+				5F1CC55515AE7A2000F00286 /* StoreTableViewCtrl.xib */,
 			);
 			name = StoreScreen;
 			sourceTree = "<group>";
@@ -309,6 +328,18 @@
 				5F1CC54915AE75FF00F00286 /* Global.mm */,
 			);
 			name = Common;
+			sourceTree = "<group>";
+		};
+		5F1CC55815AE7C2000F00286 /* ProductImages */ = {
+			isa = PBXGroup;
+			children = (
+				5F1CC55915AE7FD400F00286 /* flower01.jpeg */,
+				5F1CC55A15AE7FD400F00286 /* flower02.jpeg */,
+				5F1CC55B15AE7FD400F00286 /* flower03.jpeg */,
+				5F1CC55C15AE7FD400F00286 /* flower04.jpeg */,
+				5F1CC55D15AE7FD400F00286 /* flower05.jpeg */,
+			);
+			name = ProductImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +421,12 @@
 				5F0BA85015ADEE4900993239 /* comingSoon.png in Resources */,
 				5F0BA85615ADF0C200993239 /* ComingSoon.xib in Resources */,
 				5F0BA85815AE00E200993239 /* StoreCell.xib in Resources */,
+				5F1CC55715AE7A2000F00286 /* StoreTableViewCtrl.xib in Resources */,
+				5F1CC55E15AE7FD400F00286 /* flower01.jpeg in Resources */,
+				5F1CC55F15AE7FD400F00286 /* flower02.jpeg in Resources */,
+				5F1CC56015AE7FD400F00286 /* flower03.jpeg in Resources */,
+				5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */,
+				5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +448,7 @@
 				47FE901815AE715D006D0D99 /* ProductDetail.m in Sources */,
 				5F1CC54015AE74F600F00286 /* DataAccessProcess.m in Sources */,
 				5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */,
+				5F1CC55615AE7A2000F00286 /* StoreTableViewCtrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

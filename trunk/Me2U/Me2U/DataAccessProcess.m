@@ -12,7 +12,23 @@
 
 - (NSMutableArray*)getDataForCategoryOfStoreSearch
 {
-    return nil;
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    
+    NSArray *arrOfShops = [[NSArray alloc] initWithObjects:@"70 Thai Ha", @"20 Chua Boc", @"51 Pham Ngoc Thach", @"60 Le Trong Tan", @"70 Hai Ba Trung", @"70 Thai Ha", @"20 Chua Boc", @"51 Pham Ngoc Thach", @"60 Le Trong Tan", @"70 Hai Ba Trung", nil];
+    NSArray *arrOfPrice = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], nil];
+    NSArray *arrOfTitle = [[NSArray alloc] initWithObjects:@"Quan ao", @"Giay dep", @"Hoa", @"May tinh", @"Sach vo", @"Coc chen", @"Giay dep", @"Hoa", @"May tinh", @"Sach vo", nil];
+    NSArray *arrOfImgUrl = [[NSArray alloc] initWithObjects:@"flower01.jpeg", @"flower02.jpeg", @"flower03.jpeg", @"flower04.jpeg", @"flower05.jpeg", @"flower01.jpeg", @"flower02.jpg", @"flower03.jpg", @"flower04.jpg", @"flower05.jpg", nil];
+    
+    ProductDetail* product;
+    
+    for (int i=0; i<10; i++) {
+        product = [[ProductDetail alloc] initWithShop:[arrOfShops objectAtIndex:i] withPrice:[[arrOfPrice objectAtIndex:i] floatValue] withTitle:[arrOfTitle objectAtIndex:i] withImgURL:[arrOfImgUrl objectAtIndex:i] withDescription:nil andManufacturer:nil];
+        [arr addObject:product];
+        [product release];
+        product = nil;
+    }
+    
+    return arr;
 }
 
 - (NSMutableArray*)getDataForSpecialFemaleOfStoreSearch

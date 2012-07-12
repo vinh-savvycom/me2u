@@ -8,4 +8,4 @@
 
 #import "Global.h"
 
-DataAccessProcess *gWebProcess = nil;
+DataAccessProcess *gDataAccess = [[DataAccessProcess alloc] init];

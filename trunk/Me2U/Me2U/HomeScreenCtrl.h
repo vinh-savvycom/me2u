@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ComingSoon.h"
+#import "StoreScreenCtrl.h"
 
 @interface HomeScreenCtrl : UIViewController <UITabBarControllerDelegate, UITabBarDelegate>
 
