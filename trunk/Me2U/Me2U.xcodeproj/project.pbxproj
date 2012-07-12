@@ -12,6 +12,8 @@
 		47FE903115AE8F0D006D0D99 /* GiftTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE902F15AE8F0D006D0D99 /* GiftTypeViewController.xib */; };
 		47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FE903C15AEB63D006D0D99 /* GiftViewController.m */; };
 		47FE903F15AEB63E006D0D99 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE903D15AEB63D006D0D99 /* GiftViewController.xib */; };
+		5F0AFF9E15AEDEC000F0C51C /* ProductDetailCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0AFF9C15AEDEC000F0C51C /* ProductDetailCtrl.m */; };
+		5F0AFF9F15AEDEC000F0C51C /* ProductDetailCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AFF9D15AEDEC000F0C51C /* ProductDetailCtrl.xib */; };
 		5F0BA7E115ADAE5800993239 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E015ADAE5800993239 /* UIKit.framework */; };
 		5F0BA7E315ADAE5800993239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E215ADAE5800993239 /* Foundation.framework */; };
 		5F0BA7E515ADAE5800993239 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */; };
@@ -74,6 +76,9 @@
 		47FE903B15AEB63D006D0D99 /* GiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
 		47FE903C15AEB63D006D0D99 /* GiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
 		47FE903D15AEB63D006D0D99 /* GiftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftViewController.xib; sourceTree = "<group>"; };
+		5F0AFF9B15AEDEC000F0C51C /* ProductDetailCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailCtrl.h; sourceTree = "<group>"; };
+		5F0AFF9C15AEDEC000F0C51C /* ProductDetailCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailCtrl.m; sourceTree = "<group>"; };
+		5F0AFF9D15AEDEC000F0C51C /* ProductDetailCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailCtrl.xib; sourceTree = "<group>"; };
 		5F0BA7DC15ADAE5800993239 /* Me2U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Me2U.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0BA7E015ADAE5800993239 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F0BA7E215ADAE5800993239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -179,6 +184,16 @@
 			path = GUI/GiftTypeView;
 			sourceTree = "<group>";
 		};
+		5F0AFF9915AEDD6300F0C51C /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5F0AFF9B15AEDEC000F0C51C /* ProductDetailCtrl.h */,
+				5F0AFF9C15AEDEC000F0C51C /* ProductDetailCtrl.m */,
+				5F0AFF9D15AEDEC000F0C51C /* ProductDetailCtrl.xib */,
+			);
+			name = ProductDetail;
+			sourceTree = "<group>";
+		};
 		5F0BA7D115ADAE5700993239 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +252,7 @@
 		5F0BA7FD15ADAE9A00993239 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				5F0AFF9915AEDD6300F0C51C /* ProductDetail */,
 				47FE902C15AE8F0D006D0D99 /* GiftTypeView */,
 				5F0BA85115ADF0A700993239 /* ComingSoon */,
 				5F0BA83B15ADE42C00993239 /* StoreScreen */,
@@ -467,6 +483,7 @@
 				5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */,
 				47FE903115AE8F0D006D0D99 /* GiftTypeViewController.xib in Resources */,
 				47FE903F15AEB63E006D0D99 /* GiftViewController.xib in Resources */,
+				5F0AFF9F15AEDEC000F0C51C /* ProductDetailCtrl.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +509,7 @@
 				47FE903015AE8F0D006D0D99 /* GiftTypeViewController.m in Sources */,
 				47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */,
 				5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */,
+				5F0AFF9E15AEDEC000F0C51C /* ProductDetailCtrl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -169,6 +169,9 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    
+    ProductDetail* product = [dataForTableArr objectAtIndex:indexPath.row];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:product];
 }
 
 @end
