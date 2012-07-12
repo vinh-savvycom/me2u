@@ -10,3 +10,4 @@
 #import "DataAccessProcess.h"
 
 extern DataAccessProcess *gDataAccess;
+extern NSMutableArray *arrOfBasket;

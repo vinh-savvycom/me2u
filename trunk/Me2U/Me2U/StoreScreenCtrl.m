@@ -47,7 +47,7 @@
     //tableview
     tableViewCtrl = [[StoreTableViewCtrl alloc] init];
     UITableView *tableView = tableViewCtrl.tableView;
-    [tableView setFrame:CGRectMake(0.0f, 40.0f, 320.0f, 394.0f)];
+    [tableView setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 412.0f)];
     [self.view addSubview:tableView];
     
     //notification

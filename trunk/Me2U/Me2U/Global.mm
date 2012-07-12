@@ -9,3 +9,4 @@
 #import "Global.h"
 
 DataAccessProcess *gDataAccess = [[DataAccessProcess alloc] init];
+NSMutableArray *arrOfBasket = [[NSMutableArray alloc] init];

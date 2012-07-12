@@ -17,6 +17,7 @@
 @synthesize descriptionProduct;
 @synthesize manufacturerProduct;
 @synthesize typeProduct;
+@synthesize numberAddBasket;
 
 - (id)init {
     self = [super init];
@@ -36,6 +37,7 @@
         self.linkToImgProduct = imgUrl;
         self.descriptionProduct = description;
         self.manufacturerProduct = manufaturer;
+        self.numberAddBasket = 0;
 	}
 	return self;
 }
