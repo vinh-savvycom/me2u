@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ComingSoon.h"
+
+#import "GiftTypeViewController.h"
+
 #import "StoreScreenCtrl.h"
+
 
 @interface HomeScreenCtrl : UIViewController <UITabBarControllerDelegate, UITabBarDelegate>
 
@@ -17,5 +21,6 @@
 - (void)goToPriceRangeScreen;
 - (void)goToGiftTypeScreen;
 - (void)goToStoreScreen;
+- (void)createTabbar;
 
 @end

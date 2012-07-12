@@ -39,6 +39,8 @@
     //background
     [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBkg.png"]]];
     
+    [self createTabbar];
+    
     //home logo
     float offsetY = 30.0f;
     float paddingY = 15.0f;
@@ -146,16 +148,30 @@
 - (void)goToGiftTypeScreen
 {
     NSLog(@"go to gift type list");
+    
+    GiftTypeViewController *vcGiftType = [[GiftTypeViewController alloc] initWithNibName:@"GiftTypeViewController" bundle:nil];
+    
+    [self.navigationController pushViewController:vcGiftType animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+    [vcGiftType release];
 }
 
 - (void)goToStoreScreen
 {
     NSLog(@"go to store list");
     
+    [tbarCtrl setSelectedIndex:1];
+    
+    [self.navigationController pushViewController:tbarCtrl animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (void)createTabbar {
+    
     tbarCtrl = [[UITabBarController alloc] init];
     NSMutableArray *controllers = [[NSMutableArray alloc] init];
     ComingSoon* storeCtrl;
-
+    
     storeCtrl = [[ComingSoon alloc] init];
     [storeCtrl.tabBarItem initWithTitle:@"Home" image:[UIImage imageNamed:@"shopping.png"] tag:100];
     [controllers addObject:storeCtrl];
@@ -175,10 +191,7 @@
     tbarCtrl.viewControllers = controllers;
 	tbarCtrl.customizableViewControllers = controllers;
 	tbarCtrl.delegate = self;
-    [tbarCtrl setSelectedIndex:1];
-    
-    [self.navigationController pushViewController:tbarCtrl animated:YES];
-    self.navigationController.navigationBarHidden = NO;
+
 }
 
 #pragma mark - delegate
