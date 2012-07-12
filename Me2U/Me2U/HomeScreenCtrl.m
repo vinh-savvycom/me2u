@@ -7,6 +7,7 @@
 //
 
 #import "HomeScreenCtrl.h"
+#import "FavouriteViewController.h"
 
 @implementation HomeScreenCtrl
 
@@ -143,6 +144,12 @@
 - (void)goToPriceRangeScreen
 {
     NSLog(@"go to price range list");
+    
+    GiftTypeViewController *vcGiftType = [[GiftTypeViewController alloc] initWithNibName:@"GiftTypeViewController" bundle:nil];
+    vcGiftType.frowView = 1;
+    [self.navigationController pushViewController:vcGiftType animated:YES];
+    self.navigationController.navigationBarHidden = NO;
+    [vcGiftType release];
 }
 
 - (void)goToGiftTypeScreen
@@ -150,7 +157,7 @@
     NSLog(@"go to gift type list");
     
     GiftTypeViewController *vcGiftType = [[GiftTypeViewController alloc] initWithNibName:@"GiftTypeViewController" bundle:nil];
-    
+    vcGiftType.frowView = 0;
     [self.navigationController pushViewController:vcGiftType animated:YES];
     self.navigationController.navigationBarHidden = NO;
     [vcGiftType release];
@@ -180,9 +187,9 @@
     [storeScreenCtrl.tabBarItem initWithTitle:@"Store Search" image:[UIImage imageNamed:@"cart.png"] tag:101];
     [controllers addObject:storeScreenCtrl];
     
-    storeCtrl = [[ComingSoon alloc] init];
-    [storeCtrl.tabBarItem initWithTitle:@"Favourites" image:[UIImage imageNamed:@"shopping.png"] tag:102];
-    [controllers addObject:storeCtrl];
+    FavouriteViewController *vcFavour = [[FavouriteViewController alloc] init];
+    [vcFavour.tabBarItem initWithTitle:@"Favourites" image:[UIImage imageNamed:@"shopping.png"] tag:102];
+    [controllers addObject:vcFavour];
     
     storeCtrl = [[ComingSoon alloc] init];
     [storeCtrl.tabBarItem initWithTitle:@"Cart" image:[UIImage imageNamed:@"cart.png"] tag:103];

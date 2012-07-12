@@ -69,6 +69,30 @@
     return nil;
 }
 
+- (NSMutableArray*)getDataForPrice{
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    
+    NSArray *arrayTypeStyle = [[NSArray alloc] initWithObjects:@"Quan ao", @"Giay dep", @"Giay dep", nil];
+    
+    NSArray *arrayTypeDoDung = [[NSArray alloc] initWithObjects:@"May tinh", @"Sach vo", nil];
+    
+    NSArray *arrayTypeVoVan = [[NSArray alloc] initWithObjects:@"Coc chen", @"Hoa", nil];
+    
+    NSMutableDictionary *dicStyle = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dicDodung = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dicVoVan = [NSMutableDictionary dictionary];
+    
+    [dicStyle setValue:arrayTypeStyle forKey:@"0"];
+    [dicDodung setValue:arrayTypeDoDung forKey:@"1"];
+    [dicVoVan setValue:arrayTypeVoVan forKey:@"2"];
+    
+    
+    [arr addObject:dicStyle];
+    [arr addObject:dicDodung];
+    [arr addObject:dicVoVan];
+    
+    return arr;
+}
 
 - (NSMutableArray*)getDataForGiftType {
     
@@ -90,5 +114,7 @@
     return arr;
 
 }
+
+
 
 @end

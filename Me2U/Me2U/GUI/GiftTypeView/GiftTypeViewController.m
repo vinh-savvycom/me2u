@@ -16,7 +16,7 @@
 
 @implementation GiftTypeViewController
 
-@synthesize tbView, arrayType;
+@synthesize tbView, arrayType, frowView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +30,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    arrayType = [gDataAccess getDataForGiftType];
+    if (frowView == 0) {
+        arrayType = [gDataAccess getDataForGiftType];
+        [self setTitle:@"Type Product"];
+    }
+    else {
+        arrayType = [gDataAccess getDataForPrice];
+        [self setTitle:@"Price Product"];
+    }
+    //arrayType = [gDataAccess getDataForGiftType];
     isFirst = YES;
     // Do any additional setup after loading the view from its nib.
 }
@@ -62,11 +70,23 @@
     
     if (isFirst == YES) {
         for (NSString* key in [arrayType objectAtIndex:indexPath.row]) {
-            if (indexPath.row == 0) {
-                cell.textLabel.text = @"Thoi Trang";
+            if (frowView == kGiftType) {
+                if (indexPath.row == 0) {
+                    cell.textLabel.text = @"Thoi Trang";
+                }
+                else {
+                    cell.textLabel.text = @"Do Dung";
+                }
             }
             else {
-                cell.textLabel.text = @"Do Dung";
+                if (indexPath.row == 0) {
+                    cell.textLabel.text = @"Under 25";
+                }
+                else if (indexPath.row == 1){
+                    cell.textLabel.text = @"25-50";
+                }
+                else 
+                    cell.textLabel.text = @"50-100";
             }
             
         }

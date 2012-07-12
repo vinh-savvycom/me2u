@@ -19,6 +19,7 @@
 - (NSMutableArray*)getDataForValentinesOfStoreSearch;
 - (NSMutableArray*)getDataForMotherDayOfStoreSearch;
 - (NSMutableArray*)getDataForFatherDayOfStoreSearch;
-- (NSMutableArray*)getDataForGiftType ;
+- (NSMutableArray*)getDataForGiftType;
+- (NSMutableArray*)getDataForPrice;
 
 @end
