@@ -18,11 +18,14 @@
     NSArray *arrOfPrice = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], nil];
     NSArray *arrOfTitle = [[NSArray alloc] initWithObjects:@"Quan ao", @"Giay dep", @"Hoa", @"May tinh", @"Sach vo", @"Coc chen", @"Giay dep", @"Hoa", @"May tinh", @"Sach vo", nil];
     NSArray *arrOfImgUrl = [[NSArray alloc] initWithObjects:@"flower01.jpeg", @"flower02.jpeg", @"flower03.jpeg", @"flower04.jpeg", @"flower05.jpeg", @"flower01.jpeg", @"flower02.jpeg", @"flower03.jpeg", @"flower04.jpeg", @"flower05.jpeg", nil];
+    NSArray *arrOfManufacturer = [[NSArray alloc] initWithObjects:@"Tran Anh", @"Phuc Anh", @"Lenovo", @"Asus Tek", @"Apple Inc.", @"Microsoft", @"Google Inc", @"Facebook", @"Foxconn", @"Samsung", nil];
     
     ProductDetail* product;
     
+    NSString *strDes = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+    
     for (int i=0; i<10; i++) {
-        product = [[ProductDetail alloc] initWithShop:[arrOfShops objectAtIndex:i] withPrice:[[arrOfPrice objectAtIndex:i] floatValue] withTitle:[arrOfTitle objectAtIndex:i] withImgURL:[arrOfImgUrl objectAtIndex:i] withDescription:nil andManufacturer:nil];
+        product = [[ProductDetail alloc] initWithShop:[arrOfShops objectAtIndex:i] withPrice:[[arrOfPrice objectAtIndex:i] floatValue] withTitle:[arrOfTitle objectAtIndex:i] withImgURL:[arrOfImgUrl objectAtIndex:i] withDescription:strDes andManufacturer:[arrOfManufacturer objectAtIndex:i]];
         [arr addObject:product];
         [product release];
         product = nil;

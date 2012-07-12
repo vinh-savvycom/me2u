@@ -10,11 +10,13 @@
 #import "StoreTableViewCtrl.h"
 #import "CatetoryPickerView.h"
 #import "define.h"
+#import "ProductDetailCtrl.h"
 
 @interface StoreScreenCtrl : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, retain) StoreTableViewCtrl* tableViewCtrl;
 
 - (void)categorySelected:(id)sender;
+- (void)cellDidSelect:(NSNotification *)noti;
 
 @end

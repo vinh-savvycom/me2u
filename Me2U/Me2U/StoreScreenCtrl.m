@@ -49,6 +49,9 @@
     UITableView *tableView = tableViewCtrl.tableView;
     [tableView setFrame:CGRectMake(0.0f, 40.0f, 320.0f, 394.0f)];
     [self.view addSubview:tableView];
+    
+    //notification
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellDidSelect:) name:@"cellSelected" object:nil];
 }
 
 - (void)viewDidUnload
@@ -78,6 +81,17 @@
     [self.view addSubview:picker];
     [picker release];
     picker.storeCtrl = self;
+}
+
+- (void)cellDidSelect:(NSNotification *)noti
+{
+    NSLog(@"did receive notification");
+    ProductDetail *product = (ProductDetail*)[noti object];
+    
+    NSLog(@"%@", product.titleProduct);
+    
+    ProductDetailCtrl *productDetailCtrl = [[ProductDetailCtrl alloc] initWithProductDetail:product];
+    [self.navigationController pushViewController:productDetailCtrl animated:YES];
 }
 
 #pragma mark - delegate
