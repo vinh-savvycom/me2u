@@ -25,4 +25,18 @@
 	return self;
 }
 
+- (id)initWithShop:(NSString*)shop withPrice:(float)price withTitle:(NSString*)title withImgURL:(NSString*)imgUrl withDescription:(NSString*)description andManufacturer:(NSString*)manufaturer
+{
+    self = [super init];
+	if (self) {
+        self.shopProduct = shop;
+        self.priceProduct = price;
+        self.titleProduct = title;
+        self.linkToImgProduct = imgUrl;
+        self.descriptionProduct = description;
+        self.manufacturerProduct = manufaturer;
+	}
+	return self;
+}
+
 @end

@@ -9,4 +9,4 @@
 #import <UIKit/UIKit.h>
 #import "DataAccessProcess.h"
 
-extern DataAccessProcess *gWebProcess;
+extern DataAccessProcess *gDataAccess;

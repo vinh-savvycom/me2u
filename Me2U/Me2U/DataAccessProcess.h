@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ProductDetail.h"
 
 @interface DataAccessProcess : NSObject
 
@@ -18,4 +19,5 @@
 - (NSMutableArray*)getDataForValentinesOfStoreSearch;
 - (NSMutableArray*)getDataForMotherDayOfStoreSearch;
 - (NSMutableArray*)getDataForFatherDayOfStoreSearch;
+
 @end
