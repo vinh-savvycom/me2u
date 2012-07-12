@@ -36,13 +36,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //create table here
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(10.0f, 10.0f, 300.0f, 25.0f)];
-    [textField setBorderStyle:UITextBorderStyleRoundedRect];
-    [textField setDelegate:self];
-    [self.view addSubview:textField];
-    [textField release];
+    UIButton *btnCategory = [UIButton buttonWithType:UIButtonTypeRoundedRect];;
+    [btnCategory setFrame:CGRectMake(10.0f, 10.0f, 300.0f, 25.0f)];
+    [btnCategory setTintColor:[UIColor darkGrayColor]];
+    [btnCategory setTitle:@"Category" forState:UIControlStateNormal];
+    [self.view addSubview:btnCategory];
+    [btnCategory setTag:BTN_CATEGORY_TAG];
+    [btnCategory addTarget:self action:@selector(categorySelected:) forControlEvents:UIControlEventTouchDown];
     
+    //tableview
     tableViewCtrl = [[StoreTableViewCtrl alloc] init];
     UITableView *tableView = tableViewCtrl.tableView;
     [tableView setFrame:CGRectMake(0.0f, 40.0f, 320.0f, 394.0f)];
@@ -68,5 +70,16 @@
     
     [super dealloc];
 }
+
+#pragma mark - custom actions
+- (void)categorySelected:(id)sender
+{
+    CatetoryPickerView* picker = [[CatetoryPickerView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 460.0f - 44.0f - 49.0f)];
+    [self.view addSubview:picker];
+    [picker release];
+    picker.storeCtrl = self;
+}
+
+#pragma mark - delegate
 
 @end
