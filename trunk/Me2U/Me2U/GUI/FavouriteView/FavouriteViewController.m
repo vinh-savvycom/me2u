@@ -1,20 +1,20 @@
 //
-//  GiftViewController.m
+//  FavouriteViewController.m
 //  Me2U
 //
 //  Created by Le Quang Vinh on 7/12/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "GiftViewController.h"
+#import "FavouriteViewController.h"
 
-@interface GiftViewController ()
+@interface FavouriteViewController ()
 
 @end
 
-@implementation GiftViewController
+@implementation FavouriteViewController
 
-@synthesize arrayGift, tbView;
+@synthesize tbView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,7 +28,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:@"All Product"];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -45,7 +44,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [arrayGift count];
+    return 3;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -57,10 +56,10 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",[arrayGift objectAtIndex:indexPath.row]];
+    cell.textLabel.text = @"Favourite";
     
     return cell;
 }
+
 
 @end
