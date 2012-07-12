@@ -1,17 +1,14 @@
 //
-//  StoreTableViewCtrl.m
+//  ShoppingBasketCtrl.m
 //  Me2U
 //
-//  Created by duong2179 on 7/12/12.
+//  Created by duong2179 on 7/13/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "StoreTableViewCtrl.h"
-#import "Global.h"
+#import "ShoppingBasketCtrl.h"
 
-@implementation StoreTableViewCtrl
-
-@synthesize dataForTableArr;
+@implementation ShoppingBasketCtrl
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,9 +38,6 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    //prepare data here
-    dataForTableArr = [gDataAccess getDataForCategoryOfStoreSearch];
 }
 
 - (void)viewDidUnload
@@ -56,6 +50,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -92,30 +88,26 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [dataForTableArr count];
+    return [arrOfBasket count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"StoreCell";
+    static NSString *CellIdentifier = @"BasketCell";
     
-    StoreCell *cell = (StoreCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    BasketCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        NSArray*    nib = [[NSBundle mainBundle] loadNibNamed:@"StoreCell" owner:(id)[StoreCell class] options:nil];
-        cell = (StoreCell*)[nib objectAtIndex:0];
+        NSArray*    nib = [[NSBundle mainBundle] loadNibNamed:@"BasketCell" owner:(id)[BasketCell class] options:nil];
+        cell = (BasketCell*)[nib objectAtIndex:0];
     }
     
     // Configure the cell...
-    ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
-    [cell.imvProductLogo setImage:[UIImage imageNamed:productTemp.linkToImgProduct]];
-    [cell.lblProductName setText:productTemp.titleProduct];
+    ProductDetail *product = [arrOfBasket objectAtIndex:indexPath.row];
+    [cell.lblProductName setText:product.titleProduct];
+    NSString *strNumber = [NSString stringWithFormat:@"%d", product.numberAddBasket];
+    [cell.lblProductNumber setText:strNumber];
     
     return cell;
-}
-
-- (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 60.0f;
 }
 
 /*
@@ -169,9 +161,6 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    ProductDetail* product = [dataForTableArr objectAtIndex:indexPath.row];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:product];
 }
 
 @end

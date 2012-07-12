@@ -18,7 +18,10 @@
 @synthesize txvDescription;
 @synthesize btnAddFavourite;
 @synthesize btnAddBasket;
+@synthesize txfNumber;
 @synthesize product;
+
+int numberAddBasket = 0;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,6 +46,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [txfNumber setDelegate:self];
+    [txfNumber setText:@"0"];
 }
 
 - (void)viewDidUnload
@@ -54,12 +60,21 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [self.lblTitleProduct setText:product.titleProduct];
-    [self.imvImgProduct setImage:[UIImage imageNamed:product.linkToImgProduct]];
-    [self.lblManufacturer setText:product.manufacturerProduct];
-    [self.lblPrice setText:[NSString stringWithFormat:@"%f", product.priceProduct]];
-    [self.lblShop setText:product.shopProduct];
-    [self.txvDescription setText:product.descriptionProduct];
+    [lblTitleProduct setText:product.titleProduct];
+    [imvImgProduct setFrame:CGRectMake(2.0f, 36.0f, 100.0f, 80.0f)];
+    [imvImgProduct setImage:[UIImage imageNamed:product.linkToImgProduct]];
+    [lblManufacturer setText:product.manufacturerProduct];
+    [lblPrice setText:[NSString stringWithFormat:@"%f", product.priceProduct]];
+    [lblShop setText:product.shopProduct];
+    [txvDescription setText:product.descriptionProduct];
+    
+    NSLog(@"%f", [imvImgProduct frame].size.height);
+    /*
+    UIImageView* imv = [[UIImageView alloc] initWithFrame:CGRectMake(2.0f, 36.0f, 100.0f, 80.0f)];
+    [imv setImage:[UIImage imageNamed:product.linkToImgProduct]];
+    [self.view addSubview:imv];
+    [imv release];
+     */
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -83,6 +98,52 @@
         self.product = productTemp;
 	}
 	return self;
+}
+
+- (IBAction)addToBasket:(id)sender
+{
+    NSLog(@"Add to Basket");
+    
+    if (numberAddBasket<=0) {
+        UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Number should be larger than 0" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert1 show];
+        return;
+    }
+    product.numberAddBasket = numberAddBasket;
+    NSLog(@"So luong: %d", numberAddBasket);
+    [arrOfBasket addObject:product];
+    numberAddBasket = 0;
+    [txfNumber setText:@"0"];
+    
+    UIAlertView *alert2 = [[UIAlertView alloc] initWithTitle:@"Success" message:@"The product added to basket" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [alert2 show];
+    
+    return;
+}
+
+- (IBAction)addToFavourite:(id)sender
+{
+    NSLog(@"Add to Favourite");
+}
+
+#pragma mark - delegate
+- (BOOL) textFieldShouldReturn:(UITextField *)textField
+{
+    [txfNumber resignFirstResponder];
+    NSString *strInput = [txfNumber text];
+    numberAddBasket = [strInput intValue];
+    if(numberAddBasket==0)
+        [txfNumber setText:@"0"];
+    
+    return YES;
+}
+
+- (BOOL) textFieldShouldBeginEditing:(UITextField *)textField
+{
+    numberAddBasket = 0;
+    [txfNumber setText:@""];
+    
+    return YES;
 }
 
 @end

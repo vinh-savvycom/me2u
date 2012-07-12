@@ -191,9 +191,9 @@
     [vcFavour.tabBarItem initWithTitle:@"Favourites" image:[UIImage imageNamed:@"shopping.png"] tag:102];
     [controllers addObject:vcFavour];
     
-    storeCtrl = [[ComingSoon alloc] init];
-    [storeCtrl.tabBarItem initWithTitle:@"Cart" image:[UIImage imageNamed:@"cart.png"] tag:103];
-    [controllers addObject:storeCtrl];
+    ShoppingBasketCtrl *basketCtrl = [[ShoppingBasketCtrl alloc] init];
+    [basketCtrl.tabBarItem initWithTitle:@"Shopping Basket" image:[UIImage imageNamed:@"cart.png"] tag:103];
+    [controllers addObject:basketCtrl];
     
     tbarCtrl.viewControllers = controllers;
 	tbarCtrl.customizableViewControllers = controllers;

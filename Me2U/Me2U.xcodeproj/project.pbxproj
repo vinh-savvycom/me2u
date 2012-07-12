@@ -65,6 +65,12 @@
 		5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55C15AE7FD400F00286 /* flower04.jpeg */; };
 		5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55D15AE7FD400F00286 /* flower05.jpeg */; };
 		5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */; };
+		5FDF150815AF27A10053DCB7 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDF150615AF27A10053DCB7 /* FavouriteViewController.m */; };
+		5FDF150915AF27A10053DCB7 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDF150715AF27A10053DCB7 /* FavouriteViewController.xib */; };
+		5FDF151215AF418D0053DCB7 /* ShoppingBasketCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDF151015AF418D0053DCB7 /* ShoppingBasketCtrl.m */; };
+		5FDF151315AF418D0053DCB7 /* ShoppingBasketCtrl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDF151115AF418D0053DCB7 /* ShoppingBasketCtrl.xib */; };
+		5FDF151515AF442C0053DCB7 /* BasketCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDF151415AF442C0053DCB7 /* BasketCell.xib */; };
+		5FDF151815AF44840053DCB7 /* BasketCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDF151715AF44830053DCB7 /* BasketCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +150,15 @@
 		5F1CC55D15AE7FD400F00286 /* flower05.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower05.jpeg; path = images/flower05.jpeg; sourceTree = SOURCE_ROOT; };
 		5F1CC57E15AEBBF700F00286 /* CatetoryPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatetoryPickerView.h; sourceTree = "<group>"; };
 		5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatetoryPickerView.m; sourceTree = "<group>"; };
+		5FDF150515AF27A10053DCB7 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
+		5FDF150615AF27A10053DCB7 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
+		5FDF150715AF27A10053DCB7 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
+		5FDF150F15AF418D0053DCB7 /* ShoppingBasketCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShoppingBasketCtrl.h; sourceTree = "<group>"; };
+		5FDF151015AF418D0053DCB7 /* ShoppingBasketCtrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShoppingBasketCtrl.m; sourceTree = "<group>"; };
+		5FDF151115AF418D0053DCB7 /* ShoppingBasketCtrl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShoppingBasketCtrl.xib; sourceTree = "<group>"; };
+		5FDF151415AF442C0053DCB7 /* BasketCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasketCell.xib; sourceTree = "<group>"; };
+		5FDF151615AF44830053DCB7 /* BasketCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasketCell.h; sourceTree = "<group>"; };
+		5FDF151715AF44830053DCB7 /* BasketCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasketCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +267,8 @@
 		5F0BA7FD15ADAE9A00993239 /* GUI */ = {
 			isa = PBXGroup;
 			children = (
+				5FDF150E15AF39CD0053DCB7 /* ShoppingBasket */,
+				5FDF150415AF27A10053DCB7 /* FavouriteView */,
 				5F0AFF9915AEDD6300F0C51C /* ProductDetail */,
 				47FE902C15AE8F0D006D0D99 /* GiftTypeView */,
 				5F0BA85115ADF0A700993239 /* ComingSoon */,
@@ -396,6 +413,30 @@
 			name = CategoryPicker;
 			sourceTree = "<group>";
 		};
+		5FDF150415AF27A10053DCB7 /* FavouriteView */ = {
+			isa = PBXGroup;
+			children = (
+				5FDF150515AF27A10053DCB7 /* FavouriteViewController.h */,
+				5FDF150615AF27A10053DCB7 /* FavouriteViewController.m */,
+				5FDF150715AF27A10053DCB7 /* FavouriteViewController.xib */,
+			);
+			name = FavouriteView;
+			path = GUI/FavouriteView;
+			sourceTree = "<group>";
+		};
+		5FDF150E15AF39CD0053DCB7 /* ShoppingBasket */ = {
+			isa = PBXGroup;
+			children = (
+				5FDF150F15AF418D0053DCB7 /* ShoppingBasketCtrl.h */,
+				5FDF151015AF418D0053DCB7 /* ShoppingBasketCtrl.m */,
+				5FDF151115AF418D0053DCB7 /* ShoppingBasketCtrl.xib */,
+				5FDF151415AF442C0053DCB7 /* BasketCell.xib */,
+				5FDF151615AF44830053DCB7 /* BasketCell.h */,
+				5FDF151715AF44830053DCB7 /* BasketCell.m */,
+			);
+			name = ShoppingBasket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,6 +525,9 @@
 				47FE903115AE8F0D006D0D99 /* GiftTypeViewController.xib in Resources */,
 				47FE903F15AEB63E006D0D99 /* GiftViewController.xib in Resources */,
 				5F0AFF9F15AEDEC000F0C51C /* ProductDetailCtrl.xib in Resources */,
+				5FDF150915AF27A10053DCB7 /* FavouriteViewController.xib in Resources */,
+				5FDF151315AF418D0053DCB7 /* ShoppingBasketCtrl.xib in Resources */,
+				5FDF151515AF442C0053DCB7 /* BasketCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +554,9 @@
 				47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */,
 				5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */,
 				5F0AFF9E15AEDEC000F0C51C /* ProductDetailCtrl.m in Sources */,
+				5FDF150815AF27A10053DCB7 /* FavouriteViewController.m in Sources */,
+				5FDF151215AF418D0053DCB7 /* ShoppingBasketCtrl.m in Sources */,
+				5FDF151815AF44840053DCB7 /* BasketCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

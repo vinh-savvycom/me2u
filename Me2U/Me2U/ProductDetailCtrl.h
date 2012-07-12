@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "ProductDetail.h"
+#import "Global.h"
 
-@interface ProductDetailCtrl : UIViewController
+@interface ProductDetailCtrl : UIViewController <UITextFieldDelegate>
 
 @property (nonatomic, retain) IBOutlet UILabel *lblTitleProduct;
 @property (nonatomic, retain) IBOutlet UIImageView *imvImgProduct;
@@ -19,6 +20,10 @@
 @property (nonatomic, retain) IBOutlet UITextView *txvDescription;
 @property (nonatomic, retain) IBOutlet UIButton *btnAddFavourite;
 @property (nonatomic, retain) IBOutlet UIButton *btnAddBasket;
+@property (nonatomic, retain) IBOutlet UITextField *txfNumber;
+
+- (IBAction)addToBasket:(id)sender;
+- (IBAction)addToFavourite:(id)sender;
 
 @property (nonatomic, retain) ProductDetail *product;
 
