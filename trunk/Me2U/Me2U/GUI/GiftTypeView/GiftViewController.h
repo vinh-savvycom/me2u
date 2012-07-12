@@ -1,5 +1,5 @@
 //
-//  GiftTypeViewController.h
+//  GiftViewController.h
 //  Me2U
 //
 //  Created by Le Quang Vinh on 7/12/12.
@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GiftTypeViewController : UIViewController<UITableViewDelegate, UITableViewDataSource> {
-    BOOL isFirst;
-}
+@interface GiftViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) IBOutlet UITableView  *tbView;
-@property (nonatomic, retain) NSMutableArray        *arrayType;
+@property (nonatomic, retain) NSMutableArray        *arrayGift;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "GiftTypeViewController.h"
 #import "Global.h"
+#import "GiftViewController.h"
 
 @interface GiftTypeViewController ()
 
@@ -30,6 +31,7 @@
 {
     [super viewDidLoad];
     arrayType = [gDataAccess getDataForGiftType];
+    isFirst = YES;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -58,15 +60,40 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
-    cell.textLabel.text = @"12";
+    if (isFirst == YES) {
+        for (NSString* key in [arrayType objectAtIndex:indexPath.row]) {
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"Thoi Trang";
+            }
+            else {
+                cell.textLabel.text = @"Do Dung";
+            }
+            
+        }
+    }
+    else {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",[arrayType objectAtIndex:indexPath.row]];
+    }
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableDictionary *dicType = [arrayType objectAtIndex:indexPath.row];
-    arrayType = [dicType valueForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
-    [self.tbView reloadData];
+    if (isFirst == YES) {
+        
+        NSMutableDictionary *dicType = [arrayType objectAtIndex:indexPath.row];
+        /*
+        arrayType = [dicType valueForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+        [self.tbView reloadData];
+        isFirst = NO;
+         */
+        GiftViewController *vcGift = [[GiftViewController alloc] initWithNibName:@"GiftViewController" bundle:nil];
+        [self.navigationController pushViewController:vcGift animated:YES];
+        vcGift.arrayGift = [dicType valueForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+        
+        [vcGift release];
+    }
+    
 }
 
 @end
