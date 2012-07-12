@@ -16,6 +16,7 @@
 @property (nonatomic, readwrite) float priceProduct;
 @property (nonatomic, retain) NSString *descriptionProduct;
 @property (nonatomic, retain) NSString *manufacturerProduct;
+@property (nonatomic, retain) NSString *typeProduct;
 
 - (id)init;
 - (id)initWithShop:(NSString*)shop withPrice:(float)price withTitle:(NSString*)title withImgURL:(NSString*)imgUrl withDescription:(NSString*)description andManufacturer:(NSString*)manufaturer;

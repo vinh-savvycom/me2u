@@ -16,6 +16,7 @@
 @synthesize linkToImgProduct;
 @synthesize descriptionProduct;
 @synthesize manufacturerProduct;
+@synthesize typeProduct;
 
 - (id)init {
     self = [super init];
