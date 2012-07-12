@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47FE901815AE715D006D0D99 /* ProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FE901715AE715D006D0D99 /* ProductDetail.m */; };
 		5F0BA7E115ADAE5800993239 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E015ADAE5800993239 /* UIKit.framework */; };
 		5F0BA7E315ADAE5800993239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E215ADAE5800993239 /* Foundation.framework */; };
 		5F0BA7E515ADAE5800993239 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */; };
@@ -51,6 +52,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47FE901615AE715D006D0D99 /* ProductDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDetail.h; path = DataAccess/ProductDetail/ProductDetail.h; sourceTree = "<group>"; };
+		47FE901715AE715D006D0D99 /* ProductDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDetail.m; path = DataAccess/ProductDetail/ProductDetail.m; sourceTree = "<group>"; };
 		5F0BA7DC15ADAE5800993239 /* Me2U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Me2U.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0BA7E015ADAE5800993239 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F0BA7E215ADAE5800993239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -118,6 +121,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		47FE901115AE704E006D0D99 /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				47FE901615AE715D006D0D99 /* ProductDetail.h */,
+				47FE901715AE715D006D0D99 /* ProductDetail.m */,
+			);
+			name = ProductDetail;
+			sourceTree = "<group>";
+		};
 		5F0BA7D115ADAE5700993239 = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +198,7 @@
 		5F0BA7FE15ADAEAD00993239 /* DataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				47FE901115AE704E006D0D99 /* ProductDetail */,
 			);
 			name = DataAccess;
 			sourceTree = "<group>";
@@ -367,6 +380,7 @@
 				5F0BA83F15ADE44A00993239 /* StoreScreenCtrl.m in Sources */,
 				5F0BA85515ADF0C200993239 /* ComingSoon.m in Sources */,
 				5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */,
+				47FE901815AE715D006D0D99 /* ProductDetail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +484,7 @@
 				5F0BA7FB15ADAE5800993239 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
