@@ -10,6 +10,8 @@
 		47FE901815AE715D006D0D99 /* ProductDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FE901715AE715D006D0D99 /* ProductDetail.m */; };
 		47FE903015AE8F0D006D0D99 /* GiftTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FE902E15AE8F0D006D0D99 /* GiftTypeViewController.m */; };
 		47FE903115AE8F0D006D0D99 /* GiftTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE902F15AE8F0D006D0D99 /* GiftTypeViewController.xib */; };
+		47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FE903C15AEB63D006D0D99 /* GiftViewController.m */; };
+		47FE903F15AEB63E006D0D99 /* GiftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47FE903D15AEB63D006D0D99 /* GiftViewController.xib */; };
 		5F0BA7E115ADAE5800993239 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E015ADAE5800993239 /* UIKit.framework */; };
 		5F0BA7E315ADAE5800993239 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E215ADAE5800993239 /* Foundation.framework */; };
 		5F0BA7E515ADAE5800993239 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0BA7E415ADAE5800993239 /* CoreGraphics.framework */; };
@@ -68,6 +70,9 @@
 		47FE902D15AE8F0D006D0D99 /* GiftTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftTypeViewController.h; sourceTree = "<group>"; };
 		47FE902E15AE8F0D006D0D99 /* GiftTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftTypeViewController.m; sourceTree = "<group>"; };
 		47FE902F15AE8F0D006D0D99 /* GiftTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftTypeViewController.xib; sourceTree = "<group>"; };
+		47FE903B15AEB63D006D0D99 /* GiftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftViewController.h; sourceTree = "<group>"; };
+		47FE903C15AEB63D006D0D99 /* GiftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftViewController.m; sourceTree = "<group>"; };
+		47FE903D15AEB63D006D0D99 /* GiftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftViewController.xib; sourceTree = "<group>"; };
 		5F0BA7DC15ADAE5800993239 /* Me2U.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Me2U.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0BA7E015ADAE5800993239 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5F0BA7E215ADAE5800993239 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -163,6 +168,9 @@
 				47FE902D15AE8F0D006D0D99 /* GiftTypeViewController.h */,
 				47FE902E15AE8F0D006D0D99 /* GiftTypeViewController.m */,
 				47FE902F15AE8F0D006D0D99 /* GiftTypeViewController.xib */,
+				47FE903B15AEB63D006D0D99 /* GiftViewController.h */,
+				47FE903C15AEB63D006D0D99 /* GiftViewController.m */,
+				47FE903D15AEB63D006D0D99 /* GiftViewController.xib */,
 			);
 			name = GiftTypeView;
 			path = GUI/GiftTypeView;
@@ -445,6 +453,7 @@
 				5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */,
 				5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */,
 				47FE903115AE8F0D006D0D99 /* GiftTypeViewController.xib in Resources */,
+				47FE903F15AEB63E006D0D99 /* GiftViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +477,7 @@
 				5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */,
 				5F1CC55615AE7A2000F00286 /* StoreTableViewCtrl.m in Sources */,
 				47FE903015AE8F0D006D0D99 /* GiftTypeViewController.m in Sources */,
+				47FE903E15AEB63E006D0D99 /* GiftViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
