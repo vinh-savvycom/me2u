@@ -66,4 +66,26 @@
     return nil;
 }
 
+
+- (NSMutableArray*)getDataForGiftType {
+    
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    
+    NSArray *arrayTypeStyle = [[NSArray alloc] initWithObjects:@"Quan ao", @"Giay dep", @"Giay dep", nil];
+    
+    NSArray *arrayTypeDoDung = [[NSArray alloc] initWithObjects:@"May tinh", @"Sach vo", @"Hoa", @"Coc chen", nil];
+    
+    NSMutableDictionary *dicStyle = [NSMutableDictionary dictionary];
+    NSMutableDictionary *dicDodung = [NSMutableDictionary dictionary];
+    
+    [dicStyle setValue:arrayTypeStyle forKey:@"0"];
+    [dicDodung setValue:arrayTypeDoDung forKey:@"1"];
+    
+    [arr addObject:dicStyle];
+    [arr addObject:dicDodung];
+    
+    return arr;
+
+}
+
 @end
