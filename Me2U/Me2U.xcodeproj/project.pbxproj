@@ -49,6 +49,8 @@
 		5F0BA85615ADF0C200993239 /* ComingSoon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85415ADF0C200993239 /* ComingSoon.xib */; };
 		5F0BA85815AE00E200993239 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85715AE00E100993239 /* StoreCell.xib */; };
 		5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA85A15AE048A00993239 /* StoreCell.m */; };
+		5F1CC54015AE74F600F00286 /* DataAccessProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */; };
+		5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC54915AE75FF00F00286 /* Global.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,11 @@
 		5F0BA85715AE00E100993239 /* StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
 		5F0BA85915AE048900993239 /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		5F0BA85A15AE048A00993239 /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
+		5F1CC53E15AE74F600F00286 /* DataAccessProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccessProcess.h; sourceTree = "<group>"; };
+		5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccessProcess.m; sourceTree = "<group>"; };
+		5F1CC54615AE756200F00286 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		5F1CC54815AE75FF00F00286 /* Global.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Global.h; sourceTree = "<group>"; };
+		5F1CC54915AE75FF00F00286 /* Global.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Global.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +168,7 @@
 		5F0BA7E815ADAE5800993239 /* Me2U */ = {
 			isa = PBXGroup;
 			children = (
+				5F1CC54515AE753F00F00286 /* Common */,
 				5F0BA80215ADAF5800993239 /* images */,
 				5F0BA7FF15ADAEC000993239 /* WebServiceProcess */,
 				5F0BA7FE15ADAEAD00993239 /* DataAccess */,
@@ -198,6 +206,7 @@
 		5F0BA7FE15ADAEAD00993239 /* DataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				5F1CC53C15AE74D600F00286 /* DataAccessProcess */,
 				47FE901115AE704E006D0D99 /* ProductDetail */,
 			);
 			name = DataAccess;
@@ -281,6 +290,25 @@
 				5F0BA85415ADF0C200993239 /* ComingSoon.xib */,
 			);
 			name = ComingSoon;
+			sourceTree = "<group>";
+		};
+		5F1CC53C15AE74D600F00286 /* DataAccessProcess */ = {
+			isa = PBXGroup;
+			children = (
+				5F1CC53E15AE74F600F00286 /* DataAccessProcess.h */,
+				5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */,
+			);
+			name = DataAccessProcess;
+			sourceTree = "<group>";
+		};
+		5F1CC54515AE753F00F00286 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5F1CC54615AE756200F00286 /* define.h */,
+				5F1CC54815AE75FF00F00286 /* Global.h */,
+				5F1CC54915AE75FF00F00286 /* Global.mm */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -381,6 +409,8 @@
 				5F0BA85515ADF0C200993239 /* ComingSoon.m in Sources */,
 				5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */,
 				47FE901815AE715D006D0D99 /* ProductDetail.m in Sources */,
+				5F1CC54015AE74F600F00286 /* DataAccessProcess.m in Sources */,
+				5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
