@@ -8,8 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "ProductDetail.h"
+#import "Category.h"
+#import <CoreData/CoreData.h>
 
-@interface DataAccessProcess : NSObject
+@interface DataAccessProcess : NSObject <NSFetchedResultsControllerDelegate>
+
+@property (nonatomic, retain) NSFetchedResultsController* personFRC;
 
 - (NSMutableArray*)getDataForCategoryOfStoreSearch;
 - (NSMutableArray*)getDataForSpecialFemaleOfStoreSearch;
@@ -21,5 +25,10 @@
 - (NSMutableArray*)getDataForFatherDayOfStoreSearch;
 - (NSMutableArray*)getDataForGiftType;
 - (NSMutableArray*)getDataForPrice;
+
+//NEW NEW
+//NEW NEW
+- (NSManagedObjectContext *) managedObjectContext;
+- (NSMutableArray*)getCategoriesFromDB;
 
 @end
