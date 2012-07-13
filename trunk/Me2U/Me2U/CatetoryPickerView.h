@@ -12,6 +12,7 @@
 @interface CatetoryPickerView : UIView<UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, retain) NSMutableArray *arrOfCategory;
+@property (nonatomic, retain) NSArray *arrOfType;
 @property (nonatomic, retain) UIViewController *storeCtrl;
 
 @end

@@ -8,10 +8,13 @@
 
 #import "CatetoryPickerView.h"
 #import "StoreScreenCtrl.h"
+#import "define.h"
+#import "SBJson.h"
+#import "JSON.h"
 
 @implementation CatetoryPickerView
 
-@synthesize arrOfCategory, storeCtrl;
+@synthesize arrOfCategory, storeCtrl, arrOfType;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,7 +23,32 @@
         // Initialization code
         [self setBackgroundColor:[UIColor clearColor]];
         
-        arrOfCategory = [[NSMutableArray alloc] initWithObjects:@"Category", @"For Special Female", @"For Special Male", @"For Female Friend", @"For Male Friend", @"For Valentines", @"For Mother's Day", @"For Father's Day", nil];
+        //arrOfCategory = [[NSMutableArray alloc] initWithObjects:@"Category", @"For Special Female", @"For Special Male", @"For Female Friend", @"For Male Friend", @"For Valentines", @"For Mother's Day", @"For Father's Day", nil];
+        
+        
+        NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_filters.php"];
+        NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
+        NSError *error;
+        NSString *contentGetCategories = [NSString stringWithContentsOfURL:URLGetCategories 
+                                                                  encoding:NSASCIIStringEncoding
+                                                                     error:&error];
+        
+        
+        NSDictionary* result;
+        // convert to object
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        result = [jsonParser objectWithString:contentGetCategories error:nil];
+        arrOfCategory = [[NSMutableArray alloc] initWithCapacity:0];
+        [arrOfCategory addObject:@"Category"];
+        NSLog(@"%@",[result description]);
+        NSArray *arrayTem = [result valueForKey:@"filters"];
+        for (int i = 0; i < [arrayTem count]; i++) {
+            NSMutableDictionary *dicTem = [arrayTem objectAtIndex:i];
+            [arrOfCategory addObject:[dicTem valueForKey:@"name"]];
+        }
+        
+        
+        arrOfType = [[NSArray alloc] initWithArray:[result valueForKey:@"filters"]];
         
         //create picker view
         UIPickerView *pkvCategory = [[UIPickerView alloc] initWithFrame:CGRectMake(10.0f, 36.0f, 300.0f, 100.0f)];
@@ -82,6 +110,15 @@
 - (void)pickerView:(UIPickerView *)aPickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     [(UIButton*)[((StoreScreenCtrl*)storeCtrl).view viewWithTag:BTN_CATEGORY_TAG] setTitle:[arrOfCategory objectAtIndex:row] forState:UIControlStateNormal];
+    //[(UITableView*)[((StoreScreenCtrl*)storeCtrl).view viewWithTag:TBViewStore_TAG] reloadData];
+    
+    //[[arrOfType objectAtIndex:row] valueForKey:@"id"];
+    if (row == 0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"chooseType" object:@"0"];
+    }
+    else {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"chooseType" object:[[arrOfType objectAtIndex:row-1] valueForKey:@"id"]];
+    }
 }
 
 @end

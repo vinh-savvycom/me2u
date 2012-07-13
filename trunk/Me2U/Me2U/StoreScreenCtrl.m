@@ -7,6 +7,7 @@
 //
 
 #import "StoreScreenCtrl.h"
+#import "StoreListProductViewController.h"
 
 @implementation StoreScreenCtrl
 
@@ -44,9 +45,13 @@
     [btnCategory setTag:BTN_CATEGORY_TAG];
     [btnCategory addTarget:self action:@selector(categorySelected:) forControlEvents:UIControlEventTouchDown];
     
+    
+    
+    
     //tableview
     tableViewCtrl = [[StoreTableViewCtrl alloc] init];
     UITableView *tableView = tableViewCtrl.tableView;
+    tableView.tag = TBViewStore_TAG;
     [tableView setFrame:CGRectMake(0.0f, 44.0f, 320.0f, 412.0f)];
     [self.view addSubview:tableView];
     
@@ -85,6 +90,7 @@
 
 - (void)cellDidSelect:(NSNotification *)noti
 {
+    /*
     NSLog(@"did receive notification");
     ProductDetail *product = (ProductDetail*)[noti object];
     
@@ -92,6 +98,15 @@
     
     ProductDetailCtrl *productDetailCtrl = [[ProductDetailCtrl alloc] initWithProductDetail:product];
     [self.navigationController pushViewController:productDetailCtrl animated:YES];
+    */
+    
+    NSInteger idList = [[noti object] intValue];
+    
+    NSLog(@"%d",idList);
+    //StoreListProductViewController *vcList = [[StoreListProductViewController alloc] initWithNibName:@"StoreListProductViewController" bundle:nil];
+    //vcList.category_id = idList;
+    //[self.navigationController pushViewController:vcList animated:YES];
+    //[vcList release];
 }
 
 #pragma mark - delegate

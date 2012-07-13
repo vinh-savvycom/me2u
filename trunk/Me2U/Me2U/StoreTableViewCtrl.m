@@ -8,10 +8,14 @@
 
 #import "StoreTableViewCtrl.h"
 #import "Global.h"
+#import "SBJson.h"
+#import "JSON.h"
+#import "define.h"
+#import "StoreListProductViewController.h"
 
 @implementation StoreTableViewCtrl
 
-@synthesize dataForTableArr;
+@synthesize dataForTableArr, filterID;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -35,16 +39,73 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    //prepare data here
+    
+    NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
+    NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
+    NSError *error;
+    NSString *contentGetCategories = [NSString stringWithContentsOfURL:URLGetCategories 
+                                                       encoding:NSASCIIStringEncoding
+                                                          error:&error];
+    
+    
+    NSDictionary* result;
+    // convert to object
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+    result = [jsonParser objectWithString:contentGetCategories error:nil];    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseType:) name:@"chooseType" object:nil];
+
+    dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]];
+
+}
+
+- (void)chooseType :(NSNotification*)noti{
+    NSInteger idList = [[noti object] intValue];
+        NSError *error;
+    NSLog(@"%d",idList);
+    if (idList == 0) {
+        NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
+        NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
+
+        NSString *contentGetCategories = [NSString stringWithContentsOfURL:URLGetCategories 
+                                                                  encoding:NSASCIIStringEncoding
+                                                                     error:&error];
+        
+        
+        NSDictionary* result;
+        // convert to object
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        result = [jsonParser objectWithString:contentGetCategories error:nil];
+        
+        dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]]; 
+        
+        [self.tableView reloadData];
+    }
+    else{
+        
+        NSString *strGetCategoriesType = [NSString stringWithFormat:@"%@%@%d",kBaseURL,@"filter_products.php?filter_id=",idList];
+        NSURL *URLGetCategoriesType = [NSURL URLWithString:strGetCategoriesType];
+
+        NSString *contentGetCategoriesType = [NSString stringWithContentsOfURL:URLGetCategoriesType 
+                                                                  encoding:NSASCIIStringEncoding
+                                                                     error:&error];
+        
+        
+        NSDictionary* result;
+        // convert to object
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        result = [jsonParser objectWithString:contentGetCategoriesType error:nil];
+        
+        dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"products"]];
+        
+        [self.tableView reloadData];
+    }
+   
+
     //dataForTableArr = [gDataAccess getDataForCategoryOfStoreSearch];
-    dataForTableArr = [gDataAccess getCategoriesFromDB];
+    //dataForTableArr = [gDataAccess getCategoriesFromDB];
+
 }
 
 - (void)viewDidUnload
@@ -84,14 +145,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+//#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [dataForTableArr count];
 }
@@ -107,14 +168,29 @@
     }
     
     // Configure the cell...
+
+    //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
+    NSString *strName = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"name"];
+    NSString *strImage = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"image"];
+    NSURL *url = [NSURL URLWithString:strImage];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
+    [cell.imvProductLogo setImage:img];
+    //cell.imvProductLogo.image = [UIImage imageWithContentsOfURL:[NSURL URLWithString:strImage]];
+
     //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
     //[cell.imvProductLogo setImage:[UIImage imageNamed:productTemp.linkToImgProduct]];
     //[cell.lblProductName setText:productTemp.titleProduct];
     
-    Category* cate = [dataForTableArr objectAtIndex:indexPath.row];
-    [cell.imvProductLogo setImage:[UIImage imageNamed:cate.image]];
-    [cell.lblProductName setText:cate.name];
+    //Category* cate = [dataForTableArr objectAtIndex:indexPath.row];
+    //[cell.imvProductLogo setImage:[UIImage imageNamed:cate.image]];
+    //[cell.lblProductName setText:cate.name];
+
     
+
+    [cell.lblProductName setText:strName];
+     
+    //cell.textLabel.text = @"123";
     return cell;
 }
 
@@ -174,9 +250,15 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    
+    /*
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ProductDetail* product = [dataForTableArr objectAtIndex:indexPath.row];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:product];
+     */
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
+   
 }
 
 @end
