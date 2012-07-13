@@ -100,6 +100,13 @@
 - (NSMutableArray*)getDataForGiftType {
     
     NSMutableArray* arr = [[NSMutableArray alloc] init];
+     NSArray *arrOfShopsStyle = [[NSArray alloc] initWithObjects:@"70 Thai Ha", @"20 Chua Boc", @"51 Pham Ngoc Thach", nil];
+    
+    NSArray *arrOfShopsDoDung = [[NSArray alloc] initWithObjects:@"60 Le Trong Tan", @"70 Hai Ba Trung", @"70 Thai Ha", @"20 Chua Boc", nil];
+    
+    NSArray *arrOfPriceStyle = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], nil];
+    
+    NSArray *arrOfPriceDoDung = [[NSArray alloc] initWithObjects:[NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], [NSNumber numberWithFloat:20.0], nil];
     
     NSArray *arrayTypeStyle = [[NSArray alloc] initWithObjects:@"Quan ao", @"Giay dep", @"Giay dep", nil];
     

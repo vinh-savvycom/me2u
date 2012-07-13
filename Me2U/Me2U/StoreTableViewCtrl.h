@@ -12,6 +12,7 @@
 
 @interface StoreTableViewCtrl : UITableViewController
 
-@property (nonatomic, retain) NSMutableArray* dataForTableArr;
+@property (nonatomic, retain) NSArray* dataForTableArr;
+@property (nonatomic) NSInteger     filterID;
 
 @end

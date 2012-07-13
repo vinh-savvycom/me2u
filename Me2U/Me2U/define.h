@@ -11,5 +11,8 @@
 
 #define BTN_CATEGORY_TAG 110
 #define PKV_CATEGORY_TAG 111
+#define TBViewStore_TAG  222
+
+#define kBaseURL    @"http://m-era.com/app/ishopping/api/"
 
 #endif
