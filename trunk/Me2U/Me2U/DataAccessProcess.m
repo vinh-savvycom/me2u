@@ -7,8 +7,11 @@
 //
 
 #import "DataAccessProcess.h"
+#import "AppDelegate.h"
 
 @implementation DataAccessProcess
+
+@synthesize personFRC;
 
 - (NSMutableArray*)getDataForCategoryOfStoreSearch
 {
@@ -115,6 +118,24 @@
 
 }
 
+#pragma mark - new new
+- (NSMutableArray*)getCategoriesFromDB
+{
+    NSFetchRequest* fetchRsq = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Category" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRsq setEntity:entity];
+    
+    NSError* requestErr = nil;
+    NSArray* categories = [self.managedObjectContext executeFetchRequest:fetchRsq error:&requestErr];
+    
+    NSMutableArray *arr = [[NSMutableArray alloc] initWithArray:categories];
+    return arr;
+}
 
+- (NSManagedObjectContext *) managedObjectContext{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    return managedObjectContext;
+}
 
 @end

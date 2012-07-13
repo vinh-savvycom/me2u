@@ -43,7 +43,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     //prepare data here
-    dataForTableArr = [gDataAccess getDataForCategoryOfStoreSearch];
+    //dataForTableArr = [gDataAccess getDataForCategoryOfStoreSearch];
+    dataForTableArr = [gDataAccess getCategoriesFromDB];
 }
 
 - (void)viewDidUnload
@@ -106,9 +107,13 @@
     }
     
     // Configure the cell...
-    ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
-    [cell.imvProductLogo setImage:[UIImage imageNamed:productTemp.linkToImgProduct]];
-    [cell.lblProductName setText:productTemp.titleProduct];
+    //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
+    //[cell.imvProductLogo setImage:[UIImage imageNamed:productTemp.linkToImgProduct]];
+    //[cell.lblProductName setText:productTemp.titleProduct];
+    
+    Category* cate = [dataForTableArr objectAtIndex:indexPath.row];
+    [cell.imvProductLogo setImage:[UIImage imageNamed:cate.image]];
+    [cell.lblProductName setText:cate.name];
     
     return cell;
 }

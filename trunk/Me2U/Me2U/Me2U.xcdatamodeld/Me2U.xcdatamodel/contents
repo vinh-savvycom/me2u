@@ -1,4 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11D50d" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Basket" representedClassName="Basket" syncable="YES">
+        <attribute name="id_product" attributeType="Integer 32" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+        <attribute name="quantity" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="id_category" attributeType="Integer 32" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="total_product" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Favourite" representedClassName="Favourite" syncable="YES">
+        <attribute name="id_product" attributeType="Integer 32" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+    </entity>
+    <entity name="Filter" representedClassName="Filter" syncable="YES">
+        <attribute name="id_filter" attributeType="Integer 32" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Product" representedClassName="Product" syncable="YES">
+        <attribute name="descriptions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id_parent" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="id_product" attributeType="Integer 32" defaultValueString="0" syncable="YES" isSyncIdentityProperty="YES"/>
+        <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Basket" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Category" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Favourite" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="Filter" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="Product" positionX="160" positionY="192" width="128" height="165"/>
+    </elements>
 </model>
