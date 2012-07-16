@@ -61,7 +61,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseType:) name:@"chooseType" object:nil];
 
     dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]];
-    
+    NSLog(@"%@",[dataForTableArr description]);
     //init cache images
     MyImageObject *imgObj;
     cachedImgArr = [[NSMutableArray alloc] init];
@@ -104,8 +104,8 @@
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         result = [jsonParser objectWithString:contentGetCategories error:nil];
         
-        [dataForTableArr release];
-        dataForTableArr = nil;
+        //[dataForTableArr release];
+        //dataForTableArr = nil;
         dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]];
         
         //init cache images
@@ -267,6 +267,8 @@
         [cell.txvProductDescription setText:strDes];
         
         MyImageObject *imgObj = [cachedImgArr objectAtIndex:indexPath.row];
+        cell.imvLogo.contentMode = UIViewContentModeScaleAspectFit;
+
         if(!imgObj.content)
         {
             if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
@@ -277,11 +279,12 @@
             cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
             NSLog(@"%f", [cell.imvLogo frame].size.width);
         }
-        else
+        else {
         {
             //[cell.imvLogo setImage:imgObj.content];
             cell.imageView.image = imgObj.content;
             NSLog(@"%f", [cell.imvLogo frame].size.width);
+        }
         }
         
         return cell;
