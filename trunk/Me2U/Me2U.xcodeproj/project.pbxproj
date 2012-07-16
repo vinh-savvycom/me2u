@@ -79,6 +79,9 @@
 		5F1CC56115AE7FD400F00286 /* flower04.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55C15AE7FD400F00286 /* flower04.jpeg */; };
 		5F1CC56215AE7FD400F00286 /* flower05.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5F1CC55D15AE7FD400F00286 /* flower05.jpeg */; };
 		5F1CC58015AEBBF700F00286 /* CatetoryPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */; };
+		5F375D5515B33DEF00DAC234 /* placeHolder.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F375D5415B33DEF00DAC234 /* placeHolder.png */; };
+		5F375D5915B341FD00DAC234 /* IconDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F375D5815B341FD00DAC234 /* IconDownloader.m */; };
+		5F375D5F15B3459500DAC234 /* MyImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F375D5E15B3459500DAC234 /* MyImageObject.m */; };
 		5F7E182A15B09EE700CBAD4A /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E182915B09EE700CBAD4A /* Category.m */; };
 		5F7E182D15B09EE800CBAD4A /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E182C15B09EE700CBAD4A /* Product.m */; };
 		5F7E183015B09EE800CBAD4A /* Basket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E182F15B09EE800CBAD4A /* Basket.m */; };
@@ -198,6 +201,11 @@
 		5F1CC55D15AE7FD400F00286 /* flower05.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = flower05.jpeg; path = images/flower05.jpeg; sourceTree = SOURCE_ROOT; };
 		5F1CC57E15AEBBF700F00286 /* CatetoryPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatetoryPickerView.h; sourceTree = "<group>"; };
 		5F1CC57F15AEBBF700F00286 /* CatetoryPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatetoryPickerView.m; sourceTree = "<group>"; };
+		5F375D5415B33DEF00DAC234 /* placeHolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = placeHolder.png; path = images/placeHolder.png; sourceTree = SOURCE_ROOT; };
+		5F375D5715B341FD00DAC234 /* IconDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IconDownloader.h; path = IconDownloader/IconDownloader.h; sourceTree = "<group>"; };
+		5F375D5815B341FD00DAC234 /* IconDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IconDownloader.m; path = IconDownloader/IconDownloader.m; sourceTree = "<group>"; };
+		5F375D5D15B3459500DAC234 /* MyImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyImageObject.h; sourceTree = "<group>"; };
+		5F375D5E15B3459500DAC234 /* MyImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyImageObject.m; sourceTree = "<group>"; };
 		5F7E182815B09EE700CBAD4A /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		5F7E182915B09EE700CBAD4A /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		5F7E182B15B09EE700CBAD4A /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
@@ -237,6 +245,7 @@
 		47FC305215B0C01900B86EB7 /* Dependences */ = {
 			isa = PBXGroup;
 			children = (
+				5F375D5615B341EA00DAC234 /* IconDownloader */,
 				47FC305315B0C01900B86EB7 /* JSON */,
 			);
 			path = Dependences;
@@ -401,6 +410,7 @@
 			children = (
 				5F1CC55815AE7C2000F00286 /* ProductImages */,
 				5F0BA84F15ADEE4900993239 /* comingSoon.png */,
+				5F375D5415B33DEF00DAC234 /* placeHolder.png */,
 				5F0BA84715ADECF200993239 /* cart.png */,
 				5F0BA84815ADECF300993239 /* cart@2x.png */,
 				5F0BA84915ADECF400993239 /* shopping.png */,
@@ -517,6 +527,15 @@
 			name = CategoryPicker;
 			sourceTree = "<group>";
 		};
+		5F375D5615B341EA00DAC234 /* IconDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				5F375D5715B341FD00DAC234 /* IconDownloader.h */,
+				5F375D5815B341FD00DAC234 /* IconDownloader.m */,
+			);
+			name = IconDownloader;
+			sourceTree = "<group>";
+		};
 		5F7E183715B09EF900CBAD4A /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +549,8 @@
 				5F7E182C15B09EE700CBAD4A /* Product.m */,
 				5F7E182815B09EE700CBAD4A /* Category.h */,
 				5F7E182915B09EE700CBAD4A /* Category.m */,
+				5F375D5D15B3459500DAC234 /* MyImageObject.h */,
+				5F375D5E15B3459500DAC234 /* MyImageObject.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -650,6 +671,7 @@
 				5FDF151315AF418D0053DCB7 /* ShoppingBasketCtrl.xib in Resources */,
 				5FDF151515AF442C0053DCB7 /* BasketCell.xib in Resources */,
 				47FC307F15B0C04500B86EB7 /* StoreListProductViewController.xib in Resources */,
+				5F375D5515B33DEF00DAC234 /* placeHolder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,6 +719,8 @@
 				47FC307815B0C01900B86EB7 /* SBJsonUTF8Stream.m in Sources */,
 				47FC307915B0C01900B86EB7 /* SBJsonWriter.m in Sources */,
 				47FC307E15B0C04500B86EB7 /* StoreListProductViewController.m in Sources */,
+				5F375D5915B341FD00DAC234 /* IconDownloader.m in Sources */,
+				5F375D5F15B3459500DAC234 /* MyImageObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

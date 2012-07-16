@@ -15,7 +15,7 @@
 
 @implementation StoreTableViewCtrl
 
-@synthesize dataForTableArr, filterID;
+@synthesize dataForTableArr, filterID, cachedImgArr, imageDownloadsInProgress;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,10 +28,11 @@
 
 - (void)didReceiveMemoryWarning
 {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
     
-    // Release any cached data, images, etc that aren't in use.
+    // terminate all pending download connections
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
 }
 
 #pragma mark - View lifecycle
@@ -40,6 +41,7 @@
 {
     [super viewDidLoad];
     
+    self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     
     NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
     NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
@@ -57,13 +59,32 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chooseType:) name:@"chooseType" object:nil];
 
     dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]];
+    
+    //init cache images
+    MyImageObject *imgObj;
+    cachedImgArr = [[NSMutableArray alloc] init];
+    for (int i=0; i<[dataForTableArr count]; i++) {
+        imgObj = [[MyImageObject alloc] init];
+        imgObj.url = [[dataForTableArr objectAtIndex:i] valueForKey:@"image"];
+        imgObj.content = nil;
+        [cachedImgArr addObject:imgObj];
+        [imgObj release];
+        imgObj = nil;
+    }
+}
 
+- (void)dealloc
+{
+    [cachedImgArr release];
+	[imageDownloadsInProgress release];
+    
+    [super dealloc];
 }
 
 - (void)chooseType :(NSNotification*)noti{
     NSInteger idList = [[noti object] intValue];
         NSError *error;
-    NSLog(@"%d",idList);
+    NSLog(@"%d", idList);
     if (idList == 0) {
         NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
         NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
@@ -78,7 +99,23 @@
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         result = [jsonParser objectWithString:contentGetCategories error:nil];
         
-        dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]]; 
+        [dataForTableArr release];
+        dataForTableArr = nil;
+        dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"categories"]];
+        
+        //init cache images
+        MyImageObject *imgObj;
+        [cachedImgArr release];
+        cachedImgArr = nil;
+        cachedImgArr = [[NSMutableArray alloc] init];
+        for (int i=0; i<[dataForTableArr count]; i++) {
+            imgObj = [[MyImageObject alloc] init];
+            imgObj.url = [[dataForTableArr objectAtIndex:i] valueForKey:@"image"];
+            imgObj.content = nil;
+            [cachedImgArr addObject:imgObj];
+            [imgObj release];
+            imgObj = nil;
+        }
         
         [self.tableView reloadData];
     }
@@ -97,7 +134,23 @@
         SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
         result = [jsonParser objectWithString:contentGetCategoriesType error:nil];
         
+        [dataForTableArr release];
+        dataForTableArr = nil;
         dataForTableArr = [[NSArray alloc] initWithArray:[result valueForKey:@"products"]];
+        
+        //init cache images
+        MyImageObject *imgObj;
+        [cachedImgArr release];
+        cachedImgArr = nil;
+        cachedImgArr = [[NSMutableArray alloc] init];
+        for (int i=0; i<[dataForTableArr count]; i++) {
+            imgObj = [[MyImageObject alloc] init];
+            imgObj.url = [[dataForTableArr objectAtIndex:i] valueForKey:@"image"];
+            imgObj.content = nil;
+            [cachedImgArr addObject:imgObj];
+            [imgObj release];
+            imgObj = nil;
+        }
         
         [self.tableView reloadData];
     }
@@ -171,11 +224,12 @@
 
     //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
     NSString *strName = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"name"];
-    NSString *strImage = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"image"];
-    NSURL *url = [NSURL URLWithString:strImage];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
-    [cell.imvProductLogo setImage:img];
+//    NSString *strImage = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"image"];
+    //[cell.imvProductLogo setImage:[UIImage imageNamed:@"placeHolder.png"] ];
+//    NSURL *url = [NSURL URLWithString:strImage];
+//    NSData *data = [NSData dataWithContentsOfURL:url];
+//    UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
+//    [cell.imvProductLogo setImage:img];
     //cell.imvProductLogo.image = [UIImage imageWithContentsOfURL:[NSURL URLWithString:strImage]];
 
     //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
@@ -186,9 +240,22 @@
     //[cell.imvProductLogo setImage:[UIImage imageNamed:cate.image]];
     //[cell.lblProductName setText:cate.name];
 
-    
-
     [cell.lblProductName setText:strName];
+    
+    MyImageObject *imgObj = [cachedImgArr objectAtIndex:indexPath.row];
+    if(!imgObj.content)
+    {
+        if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+        {
+            [self startIconDownload:imgObj forIndexPath:indexPath];
+        }
+        // if a download is deferred or in progress, return a placeholder image
+        cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
+    }
+    else
+        [cell.imvProductLogo setImage:imgObj.content];
+
+    
      
     //cell.textLabel.text = @"123";
     return cell;
@@ -260,5 +327,74 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
    
 }
+
+#pragma mark -
+#pragma mark Table cell image support
+
+- (void)startIconDownload:(MyImageObject *)imgObj forIndexPath:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    //if (iconDownloader == nil) 
+    {
+        iconDownloader = [[IconDownloader alloc] init];
+        iconDownloader.imgObj = imgObj;
+        iconDownloader.indexPathInTableView = indexPath;
+        iconDownloader.delegate = self;
+        [imageDownloadsInProgress setObject:iconDownloader forKey:indexPath];
+        [iconDownloader startDownload];
+        [iconDownloader release];   
+    }
+}
+
+// this method is used in case the user scrolled into a set of cells that don't have their app icons yet
+- (void)loadImagesForOnscreenRows
+{
+    if ([self.cachedImgArr count] > 0)
+    {
+        NSArray *visiblePaths = [self.tableView indexPathsForVisibleRows];
+        for (NSIndexPath *indexPath in visiblePaths)
+        {
+            MyImageObject *imgObj = [self.cachedImgArr objectAtIndex:indexPath.row];
+            
+            if (!imgObj.content) // avoid the app icon download if the app already has an icon
+            {
+                [self startIconDownload:imgObj forIndexPath:indexPath];
+            }
+        }
+    }
+}
+
+// called by our ImageDownloader when an icon is ready to be displayed
+- (void)appImageDidLoad:(NSIndexPath *)indexPath
+{
+    IconDownloader *iconDownloader = [imageDownloadsInProgress objectForKey:indexPath];
+    if (iconDownloader != nil)
+    {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:iconDownloader.indexPathInTableView];
+        
+        // Display the newly loaded image
+        cell.imageView.image = iconDownloader.imgObj.content;
+    }
+}
+
+
+#pragma mark -
+#pragma mark Deferred image loading (UIScrollViewDelegate)
+
+// Load images for all onscreen rows when scrolling is finished
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate)
+	{
+        [self loadImagesForOnscreenRows];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForOnscreenRows];
+}
+
+
 
 @end
