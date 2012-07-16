@@ -103,10 +103,10 @@
     NSInteger idList = [[noti object] intValue];
     
     NSLog(@"%d",idList);
-    //StoreListProductViewController *vcList = [[StoreListProductViewController alloc] initWithNibName:@"StoreListProductViewController" bundle:nil];
-    //vcList.category_id = idList;
-    //[self.navigationController pushViewController:vcList animated:YES];
-    //[vcList release];
+    StoreListProductViewController *vcList = [[StoreListProductViewController alloc] initWithNibName:@"StoreListProductViewController" bundle:nil];
+    vcList.category_id = idList;
+    [self.navigationController pushViewController:vcList animated:YES];
+    [vcList release];
 }
 
 #pragma mark - delegate

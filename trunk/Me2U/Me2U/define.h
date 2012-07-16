@@ -14,5 +14,8 @@
 #define TBViewStore_TAG  222
 
 #define kBaseURL    @"http://m-era.com/app/ishopping/api/"
+#define kGetCategory    @"get_categories.php"
+#define kGetListOfProductsFromCategories  @"get_category_products.php?category_id="
+#define kGetProductDetail   @"get_product_by_id.php?product_id="
 
 #endif
