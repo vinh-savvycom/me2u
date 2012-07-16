@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "StoreCell.h"
 #import "Category.h"
+#import "MyImageObject.h"
+#import "IconDownloader.h"
 
-@interface StoreTableViewCtrl : UITableViewController
+@interface StoreTableViewCtrl : UITableViewController <IconDownloaderDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) NSArray* dataForTableArr;
 @property (nonatomic) NSInteger     filterID;
+@property (nonatomic, retain) NSMutableArray *cachedImgArr;
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+
+- (void)appImageDidLoad:(NSIndexPath *)indexPath;
+- (void)startIconDownload:(MyImageObject *)imgObj forIndexPath:(NSIndexPath *)indexPath;
 
 @end
