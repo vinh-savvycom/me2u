@@ -241,7 +241,8 @@
             cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
         }
         else
-            [cell.imvProductLogo setImage:imgObj.content];
+            //[cell.imvProductLogo setImage:imgObj.content];
+            cell.imageView.image = imgObj.content;
         
         return cell;
     }
@@ -273,10 +274,15 @@
                 [self startIconDownload:imgObj forIndexPath:indexPath];
             }
             // if a download is deferred or in progress, return a placeholder image
-            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
+            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
+            NSLog(@"%f", [cell.imvLogo frame].size.width);
         }
         else
-            [cell.imvLogo setImage:imgObj.content];
+        {
+            //[cell.imvLogo setImage:imgObj.content];
+            cell.imageView.image = imgObj.content;
+            NSLog(@"%f", [cell.imvLogo frame].size.width);
+        }
         
         return cell;
     }
