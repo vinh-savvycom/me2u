@@ -15,7 +15,7 @@
 
 @implementation StoreTableViewCtrl
 
-@synthesize dataForTableArr, filterID, cachedImgArr, imageDownloadsInProgress;
+@synthesize dataForTableArr, filterID, cachedImgArr, imageDownloadsInProgress, currIDList;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,6 +41,8 @@
 {
     [super viewDidLoad];
     
+    currIDList = 0; //category
+    
     self.imageDownloadsInProgress = [NSMutableDictionary dictionary];
     
     NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
@@ -64,6 +66,7 @@
     MyImageObject *imgObj;
     cachedImgArr = [[NSMutableArray alloc] init];
     for (int i=0; i<[dataForTableArr count]; i++) {
+        NSLog(@"%@", [dataForTableArr objectAtIndex:i]);
         imgObj = [[MyImageObject alloc] init];
         imgObj.url = [[dataForTableArr objectAtIndex:i] valueForKey:@"image"];
         imgObj.content = nil;
@@ -83,7 +86,9 @@
 
 - (void)chooseType :(NSNotification*)noti{
     NSInteger idList = [[noti object] intValue];
-        NSError *error;
+    currIDList = idList;
+    
+    NSError *error;
     NSLog(@"%d", idList);
     if (idList == 0) {
         NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_categories.php"];
@@ -212,58 +217,80 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"StoreCell";
+    static NSString *CellIdentifier1 = @"StoreCell";
+    static NSString *CellIdentifier2 = @"ProductListCell";
     
-    StoreCell *cell = (StoreCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        NSArray*    nib = [[NSBundle mainBundle] loadNibNamed:@"StoreCell" owner:(id)[StoreCell class] options:nil];
-        cell = (StoreCell*)[nib objectAtIndex:0];
+    if(currIDList==0)
+    {
+        StoreCell *cell = (StoreCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        if (cell == nil) {
+            NSArray*    nib = [[NSBundle mainBundle] loadNibNamed:@"StoreCell" owner:(id)[StoreCell class] options:nil];
+            cell = (StoreCell*)[nib objectAtIndex:0];
+        }
+        NSString *strName = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"name"];
+        [cell.lblProductName setText:strName];
+        
+        MyImageObject *imgObj = [cachedImgArr objectAtIndex:indexPath.row];
+        if(!imgObj.content)
+        {
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:imgObj forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
+        }
+        else
+            [cell.imvProductLogo setImage:imgObj.content];
+        
+        return cell;
+    }
+    else
+    {
+        ProductListCell *cell = (ProductListCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier2];
+        if (cell == nil) {
+            NSArray*    nib = [[NSBundle mainBundle] loadNibNamed:@"ProductListCell" owner:(id)[ProductListCell class] options:nil];
+            cell = (ProductListCell*)[nib objectAtIndex:0];
+        }
+        NSString *strName = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"name"];
+        [cell.lblProductName setText:strName];
+        NSString *strModel = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"model"];
+        [cell.lblProductModel setText:strModel];
+        NSString *strPrice = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"price"];
+        NSString *strPriceUSD = [NSString stringWithFormat:@"Price: %@ USD", strPrice];
+        [cell.lblProductPrice setText:strPriceUSD];
+        int quantity = [[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"quantity"] intValue];
+        NSString *strQuantity = [NSString stringWithFormat:@"Quantity: %d", quantity];
+        [cell.lblProductQuantity setText:strQuantity];
+        NSString *strDes = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"description"];
+        [cell.txvProductDescription setText:strDes];
+        
+        MyImageObject *imgObj = [cachedImgArr objectAtIndex:indexPath.row];
+        if(!imgObj.content)
+        {
+            if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
+            {
+                [self startIconDownload:imgObj forIndexPath:indexPath];
+            }
+            // if a download is deferred or in progress, return a placeholder image
+            cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
+        }
+        else
+            [cell.imvLogo setImage:imgObj.content];
+        
+        return cell;
     }
     
     // Configure the cell...
-
-    //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
-    NSString *strName = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"name"];
-//    NSString *strImage = [[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"image"];
-    //[cell.imvProductLogo setImage:[UIImage imageNamed:@"placeHolder.png"] ];
-//    NSURL *url = [NSURL URLWithString:strImage];
-//    NSData *data = [NSData dataWithContentsOfURL:url];
-//    UIImage *img = [[[UIImage alloc] initWithData:data] autorelease];
-//    [cell.imvProductLogo setImage:img];
-    //cell.imvProductLogo.image = [UIImage imageWithContentsOfURL:[NSURL URLWithString:strImage]];
-
-    //ProductDetail* productTemp = [dataForTableArr objectAtIndex:indexPath.row];
-    //[cell.imvProductLogo setImage:[UIImage imageNamed:productTemp.linkToImgProduct]];
-    //[cell.lblProductName setText:productTemp.titleProduct];
-    
-    //Category* cate = [dataForTableArr objectAtIndex:indexPath.row];
-    //[cell.imvProductLogo setImage:[UIImage imageNamed:cate.image]];
-    //[cell.lblProductName setText:cate.name];
-
-    [cell.lblProductName setText:strName];
-    
-    MyImageObject *imgObj = [cachedImgArr objectAtIndex:indexPath.row];
-    if(!imgObj.content)
-    {
-        if (self.tableView.dragging == NO && self.tableView.decelerating == NO)
-        {
-            [self startIconDownload:imgObj forIndexPath:indexPath];
-        }
-        // if a download is deferred or in progress, return a placeholder image
-        cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
-    }
-    else
-        [cell.imvProductLogo setImage:imgObj.content];
-
     
      
     //cell.textLabel.text = @"123";
-    return cell;
+    return nil;
 }
 
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 60.0f;
+    return (currIDList==0 ? 60.0f : 120.0f);
 }
 
 /*
@@ -324,6 +351,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:product];
      */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    for (int i=0; i<[dataForTableArr count]; i++) {
+        NSLog(@"%@", [dataForTableArr objectAtIndex:i]);
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
    
 }
