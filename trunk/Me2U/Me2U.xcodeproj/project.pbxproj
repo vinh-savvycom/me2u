@@ -87,6 +87,8 @@
 		5F7E183015B09EE800CBAD4A /* Basket.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E182F15B09EE800CBAD4A /* Basket.m */; };
 		5F7E183315B09EE800CBAD4A /* Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E183215B09EE800CBAD4A /* Filter.m */; };
 		5F7E183615B09EE800CBAD4A /* Favourite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7E183515B09EE800CBAD4A /* Favourite.m */; };
+		5FD2C00815B475ED0035CFA7 /* ProductListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FD2C00715B475ED0035CFA7 /* ProductListCell.xib */; };
+		5FD2C00D15B47A190035CFA7 /* ProductListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2C00C15B47A190035CFA7 /* ProductListCell.m */; };
 		5FDF150815AF27A10053DCB7 /* FavouriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDF150615AF27A10053DCB7 /* FavouriteViewController.m */; };
 		5FDF150915AF27A10053DCB7 /* FavouriteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FDF150715AF27A10053DCB7 /* FavouriteViewController.xib */; };
 		5FDF151215AF418D0053DCB7 /* ShoppingBasketCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDF151015AF418D0053DCB7 /* ShoppingBasketCtrl.m */; };
@@ -216,6 +218,9 @@
 		5F7E183215B09EE800CBAD4A /* Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Filter.m; sourceTree = "<group>"; };
 		5F7E183415B09EE800CBAD4A /* Favourite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favourite.h; sourceTree = "<group>"; };
 		5F7E183515B09EE800CBAD4A /* Favourite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favourite.m; sourceTree = "<group>"; };
+		5FD2C00715B475ED0035CFA7 /* ProductListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListCell.xib; sourceTree = "<group>"; };
+		5FD2C00B15B47A190035CFA7 /* ProductListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListCell.h; sourceTree = "<group>"; };
+		5FD2C00C15B47A190035CFA7 /* ProductListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListCell.m; sourceTree = "<group>"; };
 		5FDF150515AF27A10053DCB7 /* FavouriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteViewController.h; sourceTree = "<group>"; };
 		5FDF150615AF27A10053DCB7 /* FavouriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteViewController.m; sourceTree = "<group>"; };
 		5FDF150715AF27A10053DCB7 /* FavouriteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavouriteViewController.xib; sourceTree = "<group>"; };
@@ -460,6 +465,7 @@
 		5F0BA83B15ADE42C00993239 /* StoreScreen */ = {
 			isa = PBXGroup;
 			children = (
+				5FD2C00A15B479F00035CFA7 /* ProductListCell */,
 				47FC307B15B0C04400B86EB7 /* StoreListProductViewController.h */,
 				47FC307C15B0C04400B86EB7 /* StoreListProductViewController.m */,
 				47FC307D15B0C04500B86EB7 /* StoreListProductViewController.xib */,
@@ -553,6 +559,16 @@
 				5F375D5E15B3459500DAC234 /* MyImageObject.m */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		5FD2C00A15B479F00035CFA7 /* ProductListCell */ = {
+			isa = PBXGroup;
+			children = (
+				5FD2C00715B475ED0035CFA7 /* ProductListCell.xib */,
+				5FD2C00B15B47A190035CFA7 /* ProductListCell.h */,
+				5FD2C00C15B47A190035CFA7 /* ProductListCell.m */,
+			);
+			name = ProductListCell;
 			sourceTree = "<group>";
 		};
 		5FDF150415AF27A10053DCB7 /* FavouriteView */ = {
@@ -672,6 +688,7 @@
 				5FDF151515AF442C0053DCB7 /* BasketCell.xib in Resources */,
 				47FC307F15B0C04500B86EB7 /* StoreListProductViewController.xib in Resources */,
 				5F375D5515B33DEF00DAC234 /* placeHolder.png in Resources */,
+				5FD2C00815B475ED0035CFA7 /* ProductListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +738,7 @@
 				47FC307E15B0C04500B86EB7 /* StoreListProductViewController.m in Sources */,
 				5F375D5915B341FD00DAC234 /* IconDownloader.m in Sources */,
 				5F375D5F15B3459500DAC234 /* MyImageObject.m in Sources */,
+				5FD2C00D15B47A190035CFA7 /* ProductListCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
