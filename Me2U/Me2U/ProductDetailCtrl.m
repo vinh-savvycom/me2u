@@ -12,7 +12,7 @@
 
 @synthesize lblTitleProduct;
 @synthesize imvImgProduct;
-@synthesize lblShop;
+@synthesize lblModel;
 @synthesize lblManufacturer;
 @synthesize lblPrice;
 @synthesize txvDescription;
@@ -20,14 +20,18 @@
 @synthesize btnAddBasket;
 @synthesize txfNumber;
 @synthesize product;
+@synthesize idProduct;
+@synthesize dicProductDetail;
+@synthesize lblQuantity;
 
 int numberAddBasket = 0;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andIdProduct:(int)idProductTemp
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        idProduct = idProductTemp;
     }
     return self;
 }
@@ -49,6 +53,20 @@ int numberAddBasket = 0;
     
     [txfNumber setDelegate:self];
     [txfNumber setText:@"0"];
+    
+    NSString *strGetProductDetail = [NSString stringWithFormat:@"%@%@%d", kBaseURL, @"get_product_by_id.php?product_id=", idProduct];
+    NSURL *URLGetProductDetail = [NSURL URLWithString:strGetProductDetail];
+    NSError *error;
+    NSString *contentGetProductDetail = [NSString stringWithContentsOfURL:URLGetProductDetail 
+                                                              encoding:NSASCIIStringEncoding
+                                                                 error:&error];
+    
+    NSDictionary* result;
+    // convert to object
+    SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+    result = [jsonParser objectWithString:contentGetProductDetail error:nil];
+    NSLog(@"%@", result);
+    dicProductDetail = [[NSDictionary alloc] initWithDictionary:[result valueForKey:@"product"]];
 }
 
 - (void)viewDidUnload
@@ -60,15 +78,16 @@ int numberAddBasket = 0;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [lblTitleProduct setText:product.titleProduct];
-    [imvImgProduct setFrame:CGRectMake(2.0f, 36.0f, 100.0f, 80.0f)];
-    [imvImgProduct setImage:[UIImage imageNamed:product.linkToImgProduct]];
-    [lblManufacturer setText:product.manufacturerProduct];
-    [lblPrice setText:[NSString stringWithFormat:@"%f", product.priceProduct]];
-    [lblShop setText:product.shopProduct];
-    [txvDescription setText:product.descriptionProduct];
-    
-    NSLog(@"%f", [imvImgProduct frame].size.height);
+    [lblTitleProduct setText:[dicProductDetail valueForKey:@"name"]];
+    //[imvImgProduct setFrame:CGRectMake(2.0f, 36.0f, 100.0f, 80.0f)];
+    UIImage *imgLogo = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dicProductDetail valueForKey:@"image"]]]];
+    [imvImgProduct setImage:imgLogo];
+    [lblManufacturer setText:[dicProductDetail valueForKey:@"manufacturer"]];
+    [lblPrice setText:[dicProductDetail valueForKey:@"price"]];
+    [lblQuantity setText:[dicProductDetail valueForKey:@"quantity"]];
+    [lblModel setText:[dicProductDetail valueForKey:@"model"]];
+    [txvDescription setText:[dicProductDetail valueForKey:@"description"]];
+
     /*
     UIImageView* imv = [[UIImageView alloc] initWithFrame:CGRectMake(2.0f, 36.0f, 100.0f, 80.0f)];
     [imv setImage:[UIImage imageNamed:product.linkToImgProduct]];
@@ -86,6 +105,7 @@ int numberAddBasket = 0;
 - (void)dealloc
 {
     [product release];
+    [dicProductDetail release];
     
     [super release];
 }

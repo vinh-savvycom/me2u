@@ -66,7 +66,6 @@
     MyImageObject *imgObj;
     cachedImgArr = [[NSMutableArray alloc] init];
     for (int i=0; i<[dataForTableArr count]; i++) {
-        NSLog(@"%@", [dataForTableArr objectAtIndex:i]);
         imgObj = [[MyImageObject alloc] init];
         imgObj.url = [[dataForTableArr objectAtIndex:i] valueForKey:@"image"];
         imgObj.content = nil;
@@ -277,14 +276,11 @@
             }
             // if a download is deferred or in progress, return a placeholder image
             cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"];
-            NSLog(@"%f", [cell.imvLogo frame].size.width);
         }
-        else {
+        else
         {
             //[cell.imvLogo setImage:imgObj.content];
             cell.imageView.image = imgObj.content;
-            NSLog(@"%f", [cell.imvLogo frame].size.width);
-        }
         }
         
         return cell;
@@ -360,11 +356,16 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:product];
      */
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    for (int i=0; i<[dataForTableArr count]; i++) {
-        NSLog(@"%@", [dataForTableArr objectAtIndex:i]);
+
+    if (currIDList==0) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showListProduct" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"cellSelected" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
-   
+    else
+    {
+        NSLog(@"ShowProductDetail: celldidselect: %@", [dataForTableArr objectAtIndex:indexPath.row]);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"showProductDetail" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
+    }
 }
 
 #pragma mark -

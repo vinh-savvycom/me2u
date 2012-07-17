@@ -17,6 +17,7 @@
 @property (nonatomic, retain) StoreTableViewCtrl* tableViewCtrl;
 
 - (void)categorySelected:(id)sender;
-- (void)cellDidSelect:(NSNotification *)noti;
+- (void)showListProduct:(NSNotification *)noti;
+- (void)showDetail:(NSNotification *)noti;
 
 @end
