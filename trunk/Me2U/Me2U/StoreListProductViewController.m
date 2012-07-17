@@ -143,7 +143,8 @@
         cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
     }
     else {
-        [cell.imvLogo setImage:imgObj.content];
+        //[cell.imvLogo setImage:imgObj.content];
+        cell.imageView.image = imgObj.content;
     }
     
     return cell;
@@ -152,6 +153,15 @@
 - (float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 120.0f;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"showProductDetail" object:[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"]];
 }
 
 #pragma mark -

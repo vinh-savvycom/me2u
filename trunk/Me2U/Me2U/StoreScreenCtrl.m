@@ -56,7 +56,8 @@
     [self.view addSubview:tableView];
     
     //notification
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellDidSelect:) name:@"cellSelected" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showListProduct:) name:@"showListProduct" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showProductDetail:) name:@"showProductDetail" object:nil];
 }
 
 - (void)viewDidUnload
@@ -88,7 +89,7 @@
     picker.storeCtrl = self;
 }
 
-- (void)cellDidSelect:(NSNotification *)noti
+- (void)showListProduct:(NSNotification *)noti
 {
     /*
     NSLog(@"did receive notification");
@@ -102,11 +103,24 @@
     
     NSInteger idList = [[noti object] intValue];
     
-    NSLog(@"%d",idList);
+    NSLog(@"Show List Product of Category");
+    NSLog(@"%d", idList);
+    
     StoreListProductViewController *vcList = [[StoreListProductViewController alloc] initWithNibName:@"StoreListProductViewController" bundle:nil];
     vcList.category_id = idList;
     [self.navigationController pushViewController:vcList animated:YES];
     [vcList release];
+}
+
+- (void)showProductDetail:(NSNotification *)noti
+{
+    NSLog(@"Show Product Detail");
+    NSInteger idProduct = [[noti object] intValue];
+    NSLog(@"idProduct = %d", idProduct);
+    
+    ProductDetailCtrl *productDetail = [[ProductDetailCtrl alloc] initWithNibName:@"ProductDetailCtrl" bundle:nil andIdProduct:idProduct];
+    [self.navigationController pushViewController:productDetail animated:YES];
+    [productDetail release];
 }
 
 #pragma mark - delegate
