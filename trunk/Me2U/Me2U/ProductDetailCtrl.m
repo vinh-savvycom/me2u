@@ -7,6 +7,7 @@
 //
 
 #import "ProductDetailCtrl.h"
+#import "AppDelegate.h"
 
 @implementation ProductDetailCtrl
 
@@ -94,6 +95,26 @@ int numberAddBasket = 0;
     [self.view addSubview:imv];
     [imv release];
      */
+    
+    //kiem tra xem product hien tai da co trong bang favourite chua
+    //neu co roi thi an nut add to favourite
+    NSFetchRequest* fetchRsq = [[NSFetchRequest alloc] init];
+    NSEntityDescription* entity = [NSEntityDescription entityForName:@"Favourite" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRsq setEntity:entity];
+    
+    NSError* requestErr = nil;
+    
+    NSArray* favourites = [self.managedObjectContext executeFetchRequest:fetchRsq error:&requestErr];
+    if ([favourites count] > 0)
+    {
+        for(Favourite *fau in favourites)
+        {
+            if (fau.id_product.intValue == idProduct) {
+                [btnAddFavourite setHidden:YES];
+            }
+        }
+    }
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -106,6 +127,7 @@ int numberAddBasket = 0;
 {
     [product release];
     [dicProductDetail release];
+    [btnAddFavourite release];
     
     [super release];
 }
@@ -124,6 +146,7 @@ int numberAddBasket = 0;
 {
     NSLog(@"Add to Basket");
     
+    /*
     if (numberAddBasket<=0) {
         UIAlertView *alert1 = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Number should be larger than 0" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
         [alert1 show];
@@ -139,13 +162,32 @@ int numberAddBasket = 0;
     [alert2 show];
     
     return;
+     */
 }
 
 - (IBAction)addToFavourite:(id)sender
 {
     NSLog(@"Add to Favourite");
     
-    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    Favourite *fau = [NSEntityDescription insertNewObjectForEntityForName:@"Favourite" inManagedObjectContext:managedObjectContext];
+    if(fau != nil){
+        fau.id_product = [[NSNumber alloc] initWithInt:idProduct];
+        
+        NSError *savingError = nil;
+        if ([managedObjectContext save:&savingError]){
+            //[self.navigationController popViewControllerAnimated:YES];
+            NSLog(@"Success to save the managed object context.");
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Product added to Favourite" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+            //[btnAddFavourite removeFromSuperview];
+            [btnAddFavourite setHidden:YES];
+        } else {
+            NSLog(@"Failed to save the managed object context.");
+        }
+    } else {
+        NSLog(@"Failed to add new idProduct to favourite");
+    }
 }
 
 #pragma mark - delegate
@@ -166,6 +208,16 @@ int numberAddBasket = 0;
     [txfNumber setText:@""];
     
     return YES;
+}
+
+
+#pragma mark --
+#pragma mark database
+
+- (NSManagedObjectContext *) managedObjectContext{
+    AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
+    return managedObjectContext;
 }
 
 @end
