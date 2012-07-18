@@ -10,7 +10,7 @@
 #import "MyImageObject.h"
 #import "IconDownloader.h"
 
-@interface StoreListProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IconDownloaderDelegate>
+@interface StoreListProductViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IconDownloaderDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView  *tbView;
 @property (nonatomic) NSInteger                      category_id;

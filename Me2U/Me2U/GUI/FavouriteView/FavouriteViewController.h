@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IconDownloader.h"
+#import "MyImageObject.h"
 
-@interface FavouriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FavouriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, IconDownloaderDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *tbView;
+@property (nonatomic, retain) NSMutableArray               *dataForTableArr;
+@property (nonatomic, retain) NSMutableArray *cachedImgArr;
+@property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
+//@property (nonatomic) NSInteger currIDList;
+
+- (void)appImageDidLoad:(NSIndexPath *)indexPath;
+- (void)startIconDownload:(MyImageObject *)imgObj forIndexPath:(NSIndexPath *)indexPath;
+- (NSManagedObjectContext *) managedObjectContext;
 
 @end

@@ -18,6 +18,6 @@
 
 - (void)categorySelected:(id)sender;
 - (void)showListProduct:(NSNotification *)noti;
-- (void)showDetail:(NSNotification *)noti;
+- (void)showProductDetail:(NSNotification *)noti;
 
 @end

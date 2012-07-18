@@ -12,6 +12,7 @@
 #import "define.h"
 #import "SBJson.h"
 #import "JSON.h"
+#import "Favourite.h"
 
 @interface ProductDetailCtrl : UIViewController <UITextFieldDelegate>
 
@@ -35,5 +36,6 @@
 
 - (id)initWithProductDetail:(ProductDetail*)productTemp;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andIdProduct:(int)idProductTemp;
+- (NSManagedObjectContext *) managedObjectContext;
 
 @end
