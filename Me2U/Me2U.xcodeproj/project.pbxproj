@@ -69,6 +69,7 @@
 		5F0BA85615ADF0C200993239 /* ComingSoon.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85415ADF0C200993239 /* ComingSoon.xib */; };
 		5F0BA85815AE00E200993239 /* StoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F0BA85715AE00E100993239 /* StoreCell.xib */; };
 		5F0BA85B15AE048A00993239 /* StoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F0BA85A15AE048A00993239 /* StoreCell.m */; };
+		5F0D1A6F15B863C7006F8213 /* Me2U.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 5F0D1A6E15B863C7006F8213 /* Me2U.sqlite */; };
 		5F1CC54015AE74F600F00286 /* DataAccessProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */; };
 		5F1CC54A15AE75FF00F00286 /* Global.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC54915AE75FF00F00286 /* Global.mm */; };
 		5F1CC55615AE7A2000F00286 /* StoreTableViewCtrl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F1CC55415AE7A2000F00286 /* StoreTableViewCtrl.m */; };
@@ -188,6 +189,7 @@
 		5F0BA85715AE00E100993239 /* StoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StoreCell.xib; sourceTree = "<group>"; };
 		5F0BA85915AE048900993239 /* StoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreCell.h; sourceTree = "<group>"; };
 		5F0BA85A15AE048A00993239 /* StoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreCell.m; sourceTree = "<group>"; };
+		5F0D1A6E15B863C7006F8213 /* Me2U.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = Me2U.sqlite; sourceTree = SOURCE_ROOT; };
 		5F1CC53E15AE74F600F00286 /* DataAccessProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataAccessProcess.h; sourceTree = "<group>"; };
 		5F1CC53F15AE74F600F00286 /* DataAccessProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataAccessProcess.m; sourceTree = "<group>"; };
 		5F1CC54615AE756200F00286 /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		5F0BA7E915ADAE5800993239 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F0D1A6E15B863C7006F8213 /* Me2U.sqlite */,
 				5F0BA7EA15ADAE5800993239 /* Me2U-Info.plist */,
 				5F0BA7EB15ADAE5800993239 /* InfoPlist.strings */,
 				5F0BA7EE15ADAE5800993239 /* main.m */,
@@ -689,6 +692,7 @@
 				47FC307F15B0C04500B86EB7 /* StoreListProductViewController.xib in Resources */,
 				5F375D5515B33DEF00DAC234 /* placeHolder.png in Resources */,
 				5FD2C00815B475ED0035CFA7 /* ProductListCell.xib in Resources */,
+				5F0D1A6F15B863C7006F8213 /* Me2U.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
