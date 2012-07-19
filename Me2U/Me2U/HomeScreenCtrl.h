@@ -23,5 +23,6 @@
 - (void)goToGiftTypeScreen;
 - (void)goToStoreScreen;
 - (void)createTabbar;
+- (void)searchStore;
 
 @end
