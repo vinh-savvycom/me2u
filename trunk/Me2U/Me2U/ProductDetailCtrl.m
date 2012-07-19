@@ -67,7 +67,21 @@ int numberAddBasket = 0;
     SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
     result = [jsonParser objectWithString:contentGetProductDetail error:nil];
     NSLog(@"%@", result);
-    dicProductDetail = [[NSDictionary alloc] initWithDictionary:[result valueForKey:@"product"]];
+    if ([[result valueForKey:@"status"] isEqualToString:@"ok"]) {
+        dicProductDetail = [[NSDictionary alloc] initWithDictionary:[result valueForKey:@"product"]];
+    }
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR" message:@"No product" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        alert.tag = 100;
+        [alert show];
+        [alert release];
+    }
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (alertView.tag = 100) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)viewDidUnload

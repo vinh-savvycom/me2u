@@ -37,6 +37,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+//    self.navigationItem.leftBarButtonItem = [[[UIBarButtonItem alloc]
+//                                              initWithBarButtonSystemItem:UIBarButtonSystemItemSearch 
+//                                              target:self
+//                                              action:@selector(showSearch:)] autorelease];
+//    
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancelEdit:)];
+    
+    UIBarButtonItem *btnSynch = [[UIBarButtonItem alloc] initWithTitle:@"Synch" style:UIBarButtonItemStylePlain target:self action:@selector(onSynchData)];
+    self.navigationItem.rightBarButtonItem = btnSynch;
+    [btnSynch release];
+
+    
+    
     UIButton *btnCategory = [UIButton buttonWithType:UIButtonTypeRoundedRect];;
     [btnCategory setFrame:CGRectMake(10.0f, 10.0f, 300.0f, 25.0f)];
     [btnCategory setTintColor:[UIColor darkGrayColor]];
@@ -44,9 +57,6 @@
     [self.view addSubview:btnCategory];
     [btnCategory setTag:BTN_CATEGORY_TAG];
     [btnCategory addTarget:self action:@selector(categorySelected:) forControlEvents:UIControlEventTouchDown];
-    
-    
-    
     
     //tableview
     tableViewCtrl = [[StoreTableViewCtrl alloc] init];
@@ -58,6 +68,33 @@
     //notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showListProduct:) name:@"showListProduct" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showProductDetail:) name:@"showProductDetail" object:nil];
+}
+
+
+- (void)showSearch:(id)sender {
+    // toggle visibility of the search bar
+    [self setSearchVisible:(searchBar.alpha != 1.0)];
+}
+
+- (void)setSearchVisible:(BOOL)visible {
+    // assume searchBar is an instance variable
+    UIView *mainView = tableViewCtrl.tableView; // set this to whatever your non-searchBar view is
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:UINavigationControllerHideShowBarDuration];
+    if (!visible) {
+        searchBar.alpha = 0.0;
+        CGRect frame = mainView.frame;
+        frame.origin.y = 0;
+        frame.size.height += searchBar.bounds.size.height;
+        mainView.frame = frame;
+    } else {
+        searchBar.alpha = 1.0;
+        CGRect frame = mainView.frame;
+        frame.origin.y = searchBar.bounds.size.height;
+        frame.size.height -= searchBar.bounds.size.height;
+        mainView.frame = frame;
+    }
+    [UIView commitAnimations];
 }
 
 - (void)viewDidUnload
