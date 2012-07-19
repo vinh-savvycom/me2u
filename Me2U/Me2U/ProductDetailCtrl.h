@@ -14,7 +14,7 @@
 #import "JSON.h"
 #import "Favourite.h"
 
-@interface ProductDetailCtrl : UIViewController <UITextFieldDelegate>
+@interface ProductDetailCtrl : UIViewController <UITextFieldDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, retain) IBOutlet UILabel *lblTitleProduct;
 @property (nonatomic, retain) IBOutlet UIImageView *imvImgProduct;

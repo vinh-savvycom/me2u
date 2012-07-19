@@ -143,8 +143,13 @@
         cell.imageView.image = [UIImage imageNamed:@"Placeholder.png"]; 
     }
     else {
+
+        cell.imageView.image = imgObj.content;
+        //[cell.imvLogo setImage:imgObj.content];
+
         //[cell.imvLogo setImage:imgObj.content];
         cell.imageView.image = imgObj.content;
+
     }
     
     return cell;
