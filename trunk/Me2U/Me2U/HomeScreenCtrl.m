@@ -168,9 +168,14 @@
     NSLog(@"go to store list");
     
     [tbarCtrl setSelectedIndex:1];
+    [tbarCtrl setTitle:@"Search Store"];
     
     [self.navigationController pushViewController:tbarCtrl animated:YES];
     self.navigationController.navigationBarHidden = NO;
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(searchStore)];      
+    tbarCtrl.navigationItem.rightBarButtonItem = anotherButton;
+    self.navigationItem.backBarButtonItem = nil;
 }
 
 - (void)createTabbar {
@@ -201,12 +206,33 @@
 
 }
 
+- (void)searchStore
+{
+    NSLog(@"Search items here");
+}
+
 #pragma mark - delegate
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
 {
     if ([tbarCtrl selectedIndex] == 0) {
         NSLog(@"back to home");
         [tbarCtrl.navigationController popViewControllerAnimated:YES];
+    }
+    else if([tbarCtrl selectedIndex]==1)
+    {
+        [tbarCtrl setTitle:@"Search Store"];
+        UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Search" style:UIBarButtonItemStylePlain target:self action:@selector(searchStore)];      
+        tbarCtrl.navigationItem.rightBarButtonItem = anotherButton;
+    }
+    else if([tbarCtrl selectedIndex]==2)
+    {
+        [tbarCtrl setTitle:@"Favourites"];
+        tbarCtrl.navigationItem.rightBarButtonItem = nil;
+    }
+    else if([tbarCtrl selectedIndex]==3)
+    {
+        [tbarCtrl setTitle:@"Basket"];
+        tbarCtrl.navigationItem.rightBarButtonItem = nil;
     }
 }
 
