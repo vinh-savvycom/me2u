@@ -9,6 +9,9 @@
 #import "GiftTypeViewController.h"
 #import "Global.h"
 #import "GiftViewController.h"
+#import "JSON.h"
+#import "SBJson.h"
+#import "define.h""
 
 @interface GiftTypeViewController ()
 
@@ -16,7 +19,7 @@
 
 @implementation GiftTypeViewController
 
-@synthesize tbView, arrayType, frowView;
+@synthesize tbView, arrayType, frowView, arrOfCategory;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,7 +34,32 @@
 {
     [super viewDidLoad];
     if (frowView == 0) {
-        arrayType = [gDataAccess getDataForGiftType];
+        
+        
+        NSString *strGetCategories = [NSString stringWithFormat:@"%@%@",kBaseURL,@"get_filters.php"];
+        NSURL *URLGetCategories = [NSURL URLWithString:strGetCategories];
+        NSError *error;
+        NSString *contentGetCategories = [NSString stringWithContentsOfURL:URLGetCategories 
+                                                                  encoding:NSASCIIStringEncoding
+                                                                     error:&error];
+        
+        
+        NSDictionary* result;
+        // convert to object
+        SBJsonParser *jsonParser = [[SBJsonParser alloc] init];
+        result = [jsonParser objectWithString:contentGetCategories error:nil];
+        arrOfCategory = [[NSMutableArray alloc] initWithCapacity:0];
+        [arrOfCategory addObject:@"Category"];
+        NSLog(@"%@",[result description]);
+        NSArray *arrayTem = [result valueForKey:@"filters"];
+        for (int i = 0; i < [arrayTem count]; i++) {
+            NSMutableDictionary *dicTem = [arrayTem objectAtIndex:i];
+            [arrOfCategory addObject:[dicTem valueForKey:@"name"]];
+        }
+        
+        
+        arrayType = [[NSArray alloc] initWithArray:[result valueForKey:@"filters"]];
+        
         [self setTitle:@"Type Product"];
     }
     else {
@@ -71,12 +99,8 @@
     if (isFirst == YES) {
         for (NSString* key in [arrayType objectAtIndex:indexPath.row]) {
             if (frowView == kGiftType) {
-                if (indexPath.row == 0) {
-                    cell.textLabel.text = @"Thoi Trang";
-                }
-                else {
-                    cell.textLabel.text = @"Do Dung";
-                }
+                 NSString *strName = [[arrayType objectAtIndex:indexPath.row] valueForKey:@"name"];
+                cell.textLabel.text = strName;
             }
             else {
                 if (indexPath.row == 0) {
@@ -108,8 +132,9 @@
         isFirst = NO;
          */
         GiftViewController *vcGift = [[GiftViewController alloc] initWithNibName:@"GiftViewController" bundle:nil];
+        vcGift.strID = [[arrayType objectAtIndex:indexPath.row] valueForKey:@"id"];
         [self.navigationController pushViewController:vcGift animated:YES];
-        vcGift.arrayGift = [dicType valueForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
+        //vcGift.arrayGift = [dicType valueForKey:[NSString stringWithFormat:@"%d",indexPath.row]];
         
         [vcGift release];
     }

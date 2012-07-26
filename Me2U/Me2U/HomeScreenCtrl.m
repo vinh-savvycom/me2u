@@ -178,6 +178,11 @@
     self.navigationItem.backBarButtonItem = nil;
 }
 
+- (void)EditTable:(id)sender
+{
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"EditTable" object:nil];
+}
+
 - (void)createTabbar {
     
     tbarCtrl = [[UITabBarController alloc] init];
@@ -227,7 +232,8 @@
     else if([tbarCtrl selectedIndex]==2)
     {
         [tbarCtrl setTitle:@"Favourites"];
-        tbarCtrl.navigationItem.rightBarButtonItem = nil;
+        UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(EditTable:)];
+        [tbarCtrl.navigationItem setRightBarButtonItem:addButton];
     }
     else if([tbarCtrl selectedIndex]==3)
     {

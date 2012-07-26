@@ -42,5 +42,18 @@
          landmarkName = "-startIconDownload:forIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Me2U/GUI/FavouriteView/FavouriteViewController.m"
+         timestampString = "364495334.246707"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "270"
+         endingLineNumber = "270"
+         landmarkName = "-tableView:editingStyleForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

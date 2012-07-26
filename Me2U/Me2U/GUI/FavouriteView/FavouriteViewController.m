@@ -33,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(EditTable:) name:@"EditTable" object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +50,25 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)EditTable :(NSNotification*)noti{
+    if(self.editing)
+	{
+		[super setEditing:NO animated:NO]; 
+		[tbView setEditing:NO animated:NO];
+		[tbView reloadData];
+		[self.navigationItem.leftBarButtonItem setTitle:@"Edit"];
+		[self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStylePlain];
+	}
+	else
+	{
+		[super setEditing:YES animated:YES]; 
+		[tbView setEditing:YES animated:YES];
+		[tbView reloadData];
+		[self.navigationItem.leftBarButtonItem setTitle:@"Done"];
+		[self.navigationItem.leftBarButtonItem setStyle:UIBarButtonItemStyleDone];
+	}
 }
 
 - (void) viewWillAppear:(BOOL)animated
@@ -242,6 +262,55 @@
     AppDelegate *appDelegate = (AppDelegate *) [[UIApplication sharedApplication] delegate];
     NSManagedObjectContext *managedObjectContext = appDelegate.managedObjectContext;
     return managedObjectContext;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)aTableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    // No editing style if not editing or the index path is nil.
+    if (self.editing == NO || !indexPath) return UITableViewCellEditingStyleNone;
+    // Determine the editing style based on whether the cell is a placeholder for adding content or already 
+    // existing content. Existing content can be deleted.    
+    if (self.editing && indexPath.row != ([dataForTableArr count])) 
+	{
+		return UITableViewCellEditingStyleDelete;
+	}
+    return UITableViewCellEditingStyleNone;
+}
+
+// Update the data model according to edit actions delete or insert.
+- (void)tableView:(UITableView *)aTableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle 
+forRowAtIndexPath:(NSIndexPath *)indexPath 
+{
+    
+   NSInteger idRecode =  [[[dataForTableArr objectAtIndex:indexPath.row] valueForKey:@"id"] intValue];
+	
+    if (editingStyle == UITableViewCellEditingStyleDelete) 
+	{
+        [dataForTableArr removeObjectAtIndex:indexPath.row];
+        [self deleteRecode:@"Favourite"andID:idRecode];
+		[tbView reloadData];
+    } 
+}
+
+- (void)deleteRecode:(NSString*)entityDescription andID:(NSInteger)idRecord
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favourite" inManagedObjectContext:[self managedObjectContext]];
+    [fetchRequest setEntity:entity];
+    
+    NSError* requestErr = nil;
+    NSArray* favourites = [self.managedObjectContext executeFetchRequest:fetchRequest error:&requestErr];
+    if ([favourites count] > 0)
+    {
+        for(Favourite *fau in favourites)
+        {
+            if (fau.id_product.intValue == idRecord) {
+                [[self managedObjectContext] deleteObject:fau];
+            }
+        }
+    }
+    
 }
 
 @end

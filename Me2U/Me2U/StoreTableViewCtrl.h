@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSMutableArray *cachedImgArr;
 @property (nonatomic, retain) NSMutableDictionary *imageDownloadsInProgress;
 @property (nonatomic) NSInteger currIDList;
+@property (nonatomic, retain) IBOutlet UISearchBar *searBar;
 
 - (void)appImageDidLoad:(NSIndexPath *)indexPath;
 - (void)startIconDownload:(MyImageObject *)imgObj forIndexPath:(NSIndexPath *)indexPath;
