@@ -15,7 +15,7 @@
 
 @implementation StoreTableViewCtrl
 
-@synthesize dataForTableArr, filterID, cachedImgArr, imageDownloadsInProgress, currIDList;
+@synthesize dataForTableArr, filterID, cachedImgArr, imageDownloadsInProgress, currIDList, searBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

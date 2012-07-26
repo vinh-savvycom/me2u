@@ -21,5 +21,6 @@
 - (void)appImageDidLoad:(NSIndexPath *)indexPath;
 - (void)startIconDownload:(MyImageObject *)imgObj forIndexPath:(NSIndexPath *)indexPath;
 - (NSManagedObjectContext *) managedObjectContext;
+- (void)deleteRecode:(NSString*)entityDescription andID:(NSInteger)idRecord;
 
 @end

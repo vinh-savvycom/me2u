@@ -16,7 +16,8 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITableView  *tbView;
-@property (nonatomic, retain) NSMutableArray        *arrayType;
+@property (nonatomic, retain) NSArray               *arrayType;
+@property (nonatomic, retain) NSMutableArray *arrOfCategory;
 @property (nonatomic)         NSInteger             frowView;
 
 @end
